@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <title>Login</title>
+</head>
+<body>
+    <div class="main-div"></div>
+
+    <div class="two-div">
+        <h1>Welcome to Apna Electrician</h1>
+        <h4>Login</h4>
+        <form id="login-form">
+            {{!-- <label> Enter Your Email ID </label> --}}
+            <input type="email" name="email" id="email" placeholder="Enter Email Address" required>
+            {{!-- <label> Enter Your Password </label> --}}
+            <input type="password" name="password" id="password" placeholder="Enter your Password" required>
+            <p><a href="/forgot-password">Forgot password?</a></p>
+            <button type="submit">Login</button>
+        </form>
+        <span>________________ OR __________________</span>
+        <p>Don't have an account? <a href="/signup">Signup</a></p>
+        <div id="error-message" style="color: red; margin-top: 10px;"></div>
+    </div>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const response = await fetch('/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const data = await response.json();
+                if (data.success) {
+                    localStorage.setItem('userLoggedIn', 'true');
+                    window.location.href = '/home';
+                } else {
+                    document.getElementById('error-message').innerText = data.message || "Login failed!";
+                }
+            } catch (error) {
+                document.getElementById('error-message').innerText = "An error occurred. Please try again.";
+                console.error('Error:', error);
+            }
+        });
+    </script>
+</body>
+</html>

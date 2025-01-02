@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        /* Reset and base styles */
+        body, h1, p, ul, li {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        /* Header Section */
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 800px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        /* Celebration Section */
+        .celebration-container {
+            position: relative;
+            text-align: center;
+            margin-top: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .celebration-icon {
+            font-size: 3rem;
+            color: #4CAF50;
+            animation: bounce 1s infinite alternate;
+        }
+
+        /* Progress Bar (Green animated line) */
+        .progress-container {
+            width: 100%;
+            max-width: 800px;
+            margin-top: 20px;
+            height: 10px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background-color: #4CAF50;
+            transition: width 3s ease;
+        }
+
+        /* Timeline Section */
+        .timeline {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 15px;
+        }
+
+        .timeline-item {
+            text-align: center;
+            flex: 1;
+        }
+
+        .timeline-item span {
+            display: block;
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        .timeline-item.active span {
+            font-weight: bold;
+            color: #4CAF50;
+        }
+
+        /* Buttons Section */
+        .buttons-container {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+            flex: 1;
+            margin: 0 10px;
+            text-align: center;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        .button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        /* Information Section */
+        .info-section {
+            background-color: #f8f8f8;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            margin-top: 30px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .info-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .info-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-section li {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        /* Celebration Animation */
+        @keyframes bounce {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* Blinking Animation for Progress Bar */
+        @keyframes blink {
+            0% { background-color: #4CAF50; }
+            30% { background-color: #66FF66; }
+            100% { background-color: #4CAF50; }
+        }
+
+        @media (max-width: 768px) {
+            .buttons-container {
+                flex-direction: column;
+            }
+
+            .button {
+                margin: 10px 0;
+            }
+
+            .info-section {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Order Confirmation</h1>
+    </header>
+
+    <div class="celebration-container">
+        <div class="celebration-icon">🎉</div>
+        <h2>Thank You for Your Order!</h2>
+        <p>Your order has been successfully placed, and we're preparing it for shipment.</p>
+    </div>
+
+    <!-- Animated Green Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <div class="timeline">
+        <div class="timeline-item active">
+            <span>Order Placed</span>
+        </div>
+        <div class="timeline-item" id="shippedPoint">
+            <span>Shipped</span>
+        </div>
+        <div class="timeline-item">
+            <span>Delivered</span>
+        </div>
+    </div>
+
+    <div class="buttons-container">
+        <a href="#" id="download-invoice" class="button">Download Invoice</a>
+        <a href="/home" class="button">Return to Home</a>
+    </div>
+
+    <div class="info-section">
+        <h3>Important Information</h3>
+        <ul>
+            <li><strong>Delivery Time:</strong> 5-7 business days</li>
+            <li><strong>Shipping Carrier:</strong> XYZ Logistics</li>
+            <li><strong>Customer Support:</strong> support@yourstore.com</li>
+            <li><strong>Track Your Order:</strong> Use the tracking number sent to your email</li>
+        </ul>
+    </div>
+
+    <script>
+        // Sample dynamic order data - replace this with actual data passed from the backend
+        const orderData = {
+            fullname: "John Doe",  // User name
+            mobileNo: "1234567890",  // User phone number
+            emailAddress: "john@example.com",  // User email address
+            shippingAddress: "123 Sample Street, City, Country",  // Shipping address
+            items: [
+                { productName: "Sample Product", productPrice: 500, quantity: 2, totalPrice: 1000 }
+            ],
+            gst: 50,  // GST
+            deliveryCharges: 30  // Delivery charges
+        };
+
+        // Fill order details dynamically
+      document.getElementById('download-invoice').onclick = function () {
+    fetch('/download-invoice', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/pdf'
+        },
+        body: JSON.stringify(orderData)  // Send the order data to the server for PDF generation
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Failed to fetch invoice');
+        }
+        return response.blob();  // Get the PDF blob from the response
+    })
+    .then(blob => {
+        // Create a URL for the blob and trigger the download
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'Invoice.pdf';  // Set the name of the downloaded file
+        document.body.appendChild(a);
+        a.click();  // Trigger the download
+        a.remove();  // Clean up the link element
+        URL.revokeObjectURL(url);  // Revoke the object URL after download
+    })
+    .catch(error => {
+        console.error('Error downloading the invoice:', error);
+        alert('Error downloading the invoice.');
+    });
+};
+
+
+        // Update Progress Bar to stop between "Order Placed" and "Shipped"
+        const progressBar = document.getElementById('progressBar');
+        const status = "placed"; // This can change dynamically, e.g., "shipped" or "delivered"
+
+        function updateProgressBar() {
+            if (status === "placed") {
+                progressBar.style.width = '25%'; // Stop in the middle between "Order Placed" and "Shipped"
+                progressBar.style.animation = 'blink 1s infinite';
+            } else if (status === "shipped") {
+                progressBar.style.width = '50%';
+                progressBar.style.animation = '';
+            } else if (status === "delivered") {
+                progressBar.style.width = '100%';
+            }
+        }
+
+        setTimeout(updateProgressBar, 1000);  // Adjust the timeout to control animation start time
+    </script>
+
+</body>
+</html>

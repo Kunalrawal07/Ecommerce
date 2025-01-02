@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="signup.css">
+    <style>
+        
+    </style>
+</head>
+<body>
+
+    <div class="main-div"></div> <!-- This is the background overlay -->
+
+    <div class="signup-container">
+        <h4>Signup Page</h4>
+        <form action="/signup" method="post"> 
+            <input type="text" name="name" placeholder="Enter your username" required />
+            <input type="email" name="email" placeholder="Enter your email" required />
+            <input type="tel" name="phone" placeholder="Enter your phone number" required />
+            <input type="password" name="password" placeholder="Enter your password" required />
+            <input type="submit" value="Sign Up">
+        </form>
+        <a href="./login">I already have an account</a>
+        <a href="./home">Go to Home</a>
+    </div>
+
+</body>
+</html>

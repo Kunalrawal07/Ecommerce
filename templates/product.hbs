@@ -1,0 +1,111 @@
+{{!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="/styles.css"> <!-- Link to your CSS file -->
+    <style>
+        .product-details-container {
+            display: flex;
+            flex-direction: row;
+            padding: 20px;
+            margin: 20px;
+        }
+
+        .image-section {
+            flex: 40%;
+            padding-right: 20px;
+        }
+
+        .image-section img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .details-section {
+            flex: 60%;
+        }
+
+        .product-title {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .product-description {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .product-price {
+            font-size: 22px;
+            color: green;
+            margin-bottom: 15px;
+        }
+
+        .add-to-cart, .buy-now {
+            padding: 10px 20px;
+            margin-right: 10px;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .add-to-cart {
+            background-color: #ff5722;
+        }
+
+        .buy-now {
+            background-color: #28a745;
+        }
+
+        .product-specs {
+            margin-top: 20px;
+        }
+
+        .product-specs h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .specs-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .specs-list li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="product-details-container">
+            <div class="image-section">
+                <img src="{{this.imageUrl}}" alt="{{this.name}}">
+            </div>
+            <div class="details-section">
+                <h1 class="product-title">{{this.name}}</h1>
+                <p class="product-description">{{this.description}}</p>
+                <p class="product-price">$ {{this.price}}</p>
+
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="buy-now">Buy Now</button>
+
+                <div class="product-specs">
+                    <h3>Product Specifications</h3>
+                    <ul class="specs-list">
+                        {{#each this.specifications}}
+                        <li><strong>{{@key}}:</strong> {{this}}</li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html> --}}

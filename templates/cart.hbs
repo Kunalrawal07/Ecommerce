@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .cart-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2rem;
+        }
+        .cart-items {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .product-image {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+        .cart-item div {
+            flex-grow: 1;
+        }
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .quantity-controls button {
+            width: 30px;
+            height: 30px;
+            background-color: #ddd;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .remove-button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .cart-summary {
+            margin-top: 40px;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .checkout-button {
+            background-color: green;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 4px;
+            font-size: 1.1rem;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .cart-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .product-image {
+                width: 80px;
+                height: 80px;
+            }
+            .quantity-controls {
+                justify-content: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <!-- Navbar code here -->
+    </nav>
+
+    <main class="cart-container">
+        <h1>Your Cart</h1>
+
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be dynamically inserted here -->
+        </div>
+
+        <div class="cart-summary">
+            <h3>Cart Summary</h3>
+            <p>Total Items: <span id="total-items">0</span></p>
+            <p>Total Price: ₹<span id="total-price">0</span></p>
+            <button onclick="checkout()" class="checkout-button">Checkout</button>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartItemsContainer = document.getElementById('cartItems');
+            const totalItemsElement = document.getElementById('total-items');
+            const totalPriceElement = document.getElementById('total-price');
+
+            let totalPrice = 0;
+            let totalItems = 0;
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p>Your cart is empty!</p>';
+                return;
+            }
+
+            cart.forEach(item => {
+                const div = document.createElement('div');
+                div.classList.add('cart-item');
+                div.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}" class="product-image" />
+                    <div>
+                        <h3>${item.name}</h3>
+                        <p>Price: ₹${item.price}</p>
+                        <div class="quantity-controls">
+                            <button onclick="updateQuantity('${item.id}', -1)">-</button>
+                            <span id="quantity-${item.id}">${item.quantity}</span>
+                            <button onclick="updateQuantity('${item.id}', 1)">+</button>
+                        </div>
+                        <p>Total: ₹${item.price * item.quantity}</p>
+                    </div>
+                    <button onclick="removeFromCart('${item.id}')" class="remove-button">Remove</button>
+                `;
+                cartItemsContainer.appendChild(div);
+
+                totalPrice += item.price * item.quantity;
+                totalItems += item.quantity;
+            });
+
+            totalItemsElement.textContent = totalItems;
+            totalPriceElement.textContent = totalPrice;
+        });
+
+        function removeFromCart(productId) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart = cart.filter(item => item.id !== productId);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            location.reload();
+        }
+
+        function updateQuantity(productId, change) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const product = cart.find(item => item.id === productId);
+            if (product) {
+                product.quantity = Math.max(1, product.quantity + change);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                document.getElementById(`quantity-${productId}`).textContent = product.quantity;
+                location.reload();
+            }
+        }
+
+     function checkout() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+    }
+    localStorage.setItem('cart', JSON.stringify(cart)); // Store cart data in localStorage before redirect
+    window.location.href = '/checkout'; // Redirect to checkout page
+}
+
+    </script>
+</body>
+</html>

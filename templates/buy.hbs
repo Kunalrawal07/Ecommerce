@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+              * {
+            font-family: 'Rubik', sans-serif;
+            margin: 0%;
+            padding: 0%;
+        }
+        .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2c3e50;
+    padding: 15px 20px;
+    color: #fff;
+}
+
+.navbar-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.navbar-links li {
+    position: relative;
+}
+
+.navbar-links a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar-links a:hover {
+    text-decoration: underline;
+}
+
+.search-container {    
+    display: flex;
+    display: none;
+
+}
+
+.search-container input[type="text"] {
+     padding: 8px;
+    border: none;
+    width: 200px;
+    border-radius: 5px;
+}
+
+.search-container button {
+    padding: 8px;
+    background-color: #2980b9;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-container button:hover {
+    background-color: #3498db;
+}
+
+.login{
+    height: 33px;
+    width: 65px;
+    background-color: rgb(90, 90, 198);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.signup{
+    cursor: pointer;
+    height: 33px;
+    width: 65px;
+    background-color: rgb(90, 90, 198);
+    color: white;
+    border: none;
+}
+
+/* Profile Dropdown Styles */
+.profile-section {
+     display: flex;
+    position: relative; /* Set this to relative for dropdown positioning */
+    margin-left: 20px; /* Space between the search bar and profile */
+    margin-right: 50px;
+    width: 150px;
+}
+
+.profile-dropdown {
+    position: relative;
+        left: 110px;
+
+}
+
+.profile-btn {
+     margin-top: 5px;
+    background: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 5px;
+    background-color: #fff;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    color: #333;
+    border-radius: 5px;
+}
+
+.dropdown-content a,
+.dropdown-content button {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border: none;
+    background: none;
+    text-align: left;
+}
+
+.dropdown-content a:hover,
+.dropdown-content button:hover {
+    background-color: #f1f1f1;
+}
+
+/* Show dropdown on hover */
+.profile-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+.user-icon{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cart{
+    margin-top: 5px;
+    margin-right: 50px;
+
+}
+
+
+
+        {{!-- navbar css end  --}}
+
+
+
+        /* Styling for the page */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f8f8f8;
+        }
+
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .left-side {
+            flex: 2;
+            padding-right: 20px;
+        }
+
+        .product-image {
+            width: 100%;
+            max-width: 300px;
+            margin-bottom: 20px;
+        }
+
+        .product-info {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .right-side {
+            flex: 1;
+            padding: 20px;
+            border-left: 1px solid #ddd;
+        }
+
+        .order-summary {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .summary-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .summary-detail {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        #place-order {
+            background-color: #b12704;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        #place-order:hover {
+            background-color: #a12003;
+        }
+
+        #download-invoice {
+            display: none;
+        }
+
+        select{
+            width: 750px;
+            height: 50px;
+            padding-right: 10px;
+            border: none;
+            font-size: 18px;
+
+        }
+   
+    </style>
+</head>
+<body>
+
+
+<nav class="navbar" id="navbar">
+    <div class="navbar-logo"> Apna Electrician </div>
+    <ul class="navbar-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="tel:+1234567890">Call Now</a></li>
+    </ul>
+    <div class="search-container">
+        <form id="search-form" onsubmit="return handleSearch(event)">
+            <input type="text" id="search-input" placeholder="Search..." />
+            <button type="submit">Search</button>
+        </form>
+    </div>
+    <div class="profile-section">
+        {{#if username}}
+        <div class="profile-dropdown">
+            <div class="user-icon">
+                <img src="https://cdn-icons-png.flaticon.com/128/4140/4140037.png" width="30px" alt="User" height="30px" />
+                <span class="profile-btn">{{username}}</span>
+            </div>
+            <div class="dropdown-content">
+                <a href="/profile">Profile Settings</a>
+                {{!-- <a href="/orders">Order History</a> --}}
+                <form action="/logout" method="POST">
+                    <button type="submit">Logout</button>
+                </form>
+            </div>
+        </div>
+        <a href="/cart"><img class="cart" src="https://cdn-icons-png.flaticon.com/128/3523/3523887.png" height="35px" width="35px" /></a>
+        {{else}}
+        <button onclick="window.location.href='/login'" class="login">Login</button>
+        <button onclick="window.location.href='/signup'" class="signup">Signup</button>
+        {{/if}}
+    </div>
+</nav>
+
+
+
+    <main>
+        <div class="container">
+            <div class="left-side">
+                <div class="product-info">
+                    <img src="{{product.imageUrls.[0]}}" alt="{{product.name}}" class="product-image">
+                    <h2>{{product.name}}</h2>
+                    <h3>Price: ₹{{product.price}}</h3>
+                    <br/>
+  <h2>Description</h2>
+                <div class="product-description">
+                    <ul>
+                        {{#each (splitDescription product.description)}}
+                            <li>{{this}}</li>
+                        {{/each}}
+                    </ul>                
+                </div>                </div>
+
+       <form id="order-form" action="/place-order" method="POST">
+    <input type="hidden" name="productId" value="{{product._id}}">
+    <input type="hidden" name="productName" value="{{product.name}}">
+    <input type="hidden" name="productPrice" value="{{product.price}}">
+
+    <!-- Quantity and other fields -->
+    <label for="quantity">Quantity:</label>
+    <input type="number" name="quantity" id="quantity" min="1" value="1" required>
+
+    <label for="fullname">Full Name:</label>
+    <input type="text" name="fullname" required>
+
+    <label for="mobileNo">Mobile No:</label>
+    <input type="number" name="mobileNo" required>
+
+    <label for="emailAddress">Email Address:</label>
+    <input type="email" name="emailAddress" required>
+
+    <label for="city">City/State:</label>
+    <input type="text" name="city" required>
+
+    <label for="pinCode">Pin Code:</label>
+    <input type="number" name="pinCode" required>
+
+    <label for="pinCode">Payment Mode:</label>
+    <select>
+        <option> Cash ON Delivery (default Selected) </option>
+        <option> GPay / Phone pe ( currently Not Available ) </option>
+        <option> Net Banking ( currently Not Available ) </option>
+    </select>
+
+   
+    <label for="shippingAddress">Shipping Address:</label>
+    <textarea name="shippingAddress" id="shippingAddress" rows="4" required></textarea>
+
+    {{!-- <button type="submit">Place Order</button> --}}
+</form>
+
+{{!-- <script>
+    document.getElementById('download-invoice').onclick = function() {
+        const formData = new FormData(document.getElementById('order-form'));
+        const orderData = Object.fromEntries(formData.entries());
+
+        fetch('/download-invoice', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(orderData)
+        })
+        .then(response => response.blob())
+        .then(blob => {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'Invoice.pdf';
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            URL.revokeObjectURL(url);
+        })
+        .catch(error => {
+            console.error('Error downloading the invoice:', error);
+            alert('Error downloading the invoice.');
+        });
+    };
+</script> --}}
+
+            </div>
+
+            <div class="right-side">
+                <div class="order-summary">
+                    <div class="summary-title">Order Summary</div>
+                    <div class="summary-detail">Product: {{product.name}}</div>
+                    <div class="summary-detail">Price: ₹{{product.price}}</div>
+                    <div class="summary-detail">Quantity: <span id="summary-quantity">1</span></div>
+                    <div class="summary-detail">Total: ₹<span id="summary-total">{{product.price}}</span></div>
+                </div>
+
+                <button id="place-order" type="submit" id="order-form" form="order-form">Place Order</button>
+                {{!-- <button id="download-invoice" onclick="downloadInvoice()">Download Invoice</button> --}}
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 E-Commerce Store</p>
+    </footer>
+
+    <script>
+        const quantityInput = document.getElementById('quantity');
+        const summaryQuantity = document.getElementById('summary-quantity');
+        const summaryTotal = document.getElementById('summary-total');
+
+        {{!-- quantityInput.addEventListener('input', function () {
+            const quantity = parseInt(quantityInput.value, 10);
+            const price = {{product.price}};
+            summaryQuantity.textContent = quantity;
+            summaryTotal.textContent = (price * quantity).toFixed(2);
+        });
+
+        function downloadInvoice() {
+            window.location.href = '/download-invoice';
+        } --}}
+
+
+document.getElementById('order-form').onsubmit = async function(event) {
+
+    const formData = new FormData(this);
+
+    try {
+        const response = await fetch('/place-order', {
+            method: 'POST',
+            body: formData
+        });
+
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(errorText);
+        }
+
+        const result = await response.json();
+        if (result.success) {
+            window.location.href = '/congratulations';
+        } else {
+            alert('Error placing the order: ' + result.message);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('There was a problem with your order: ' + error.message);
+    }
+};
+
+
+
+    </script>
+</body>
+</html>

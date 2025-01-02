@@ -1,0 +1,279 @@
+<!-- templates/admin.hbs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Admin - Add Product</title>
+</head>
+<body id="Body">
+    <h1>Add a New Product</h1>
+
+  <form id="productForm" action="/add-product" method="POST" enctype="multipart/form-data">
+    <label for="name">Product Name:</label>
+    <input type="text" name="name" placeholder="Enter product name" required>
+
+   <label for="description">Product Description:</label>
+<textarea name="description" placeholder="Enter product description" rows="5" required></textarea>
+
+
+    <label for="price">Product Price:</label>
+    <input type="number" name="price" placeholder="Enter product price" required>
+
+    <!-- Section for entering multiple image URLs -->
+    <label for="imageUrls">Product Image URLs:</label>
+    <div id="imageUrlContainer">
+        <input type="text" name="imageUrls[]" placeholder="Enter image URL" class="image-url-input" required>
+    </div>
+    <button type="button" id="addImageUrlButton">Add More Image URLs</button>
+    <br>
+
+    <!-- File upload input for image file -->
+    <label for="imageUpload">Upload Product Images:</label>
+    <input type="file" name="imageUpload" multiple>
+
+    <button type="submit" id="saveButton">Save</button>
+</form>
+
+<script>
+    // Add more image URL input fields dynamically
+    document.getElementById('addImageUrlButton').addEventListener('click', function() {
+        const container = document.getElementById('imageUrlContainer');
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.name = 'imageUrls[]';
+        input.placeholder = 'Enter image URL';
+        input.classList.add('image-url-input');
+        container.appendChild(input);
+    });
+</script>
+
+
+
+    <h2 id="Table-headline">Product List</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Sr No</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Upload Date</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="productTableBody">
+            {{#each products}}
+            <tr data-id="{{this._id}}">
+                <td>{{@index}}</td>
+                <td>{{this.name}}</td>
+                <td>{{this.price}}</td>
+                <td>{{this.createdAt}}</td>
+                <td>{{#if this.isLive}}<span style="color:green;">✔️</span>{{else}}<span style="color:red;">✖️</span>{{/if}}</td>
+                <td id="action-section">
+                    <button id="edit-btn" class="editButton" data-id="{{this._id}}" data-name="{{this.name}}" data-description="{{this.description}}" data-price="{{this.price}}" data-imageurl="{{this.imageUrls}}">Edit</button>
+                    <button id="edit-btn" class="deleteButton">Delete</button>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+    <a href="/home">
+        <button>Go to Home Page</button>
+    </a>
+
+    <!-- Edit Product Modal -->
+    <div class="modal fade" id="editProductModal" tabindex="-1" role="dialog" aria-labelledby="editProductModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editProductModalLabel">Edit Product</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="editProductForm">
+                        <input type="hidden" id="editProductId" name="id">
+                        <div class="form-group">
+                            <label for="editProductName">Product Name</label>
+                            <input type="text" class="form-control" id="editProductName" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="editProductDescription">Description</label>
+                            <textarea class="form-control" id="editProductDescription" name="description" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="editProductPrice">Price</label>
+                            <input type="number" class="form-control" id="editProductPrice" name="price" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="editProductImageUrls">Image URLs</label>
+                            <input type="text" class="form-control" id="editProductImageUrls" name="imageUrls">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Dynamically add more image URL fields
+        {{!-- document.getElementById('addImageUrlButton').addEventListener('click', function () {
+            const container = document.getElementById('imageUrlContainer');
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.name = 'imageUrls[]';  // This sends an array of image URLs to the backend
+            input.placeholder = 'Enter another image URL';
+            input.classList.add('image-url-input');
+            container.appendChild(input);
+        }); --}}
+
+        // Save button functionality
+        {{!-- document.getElementById("saveButton").onclick = async function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const form = document.getElementById("productForm");
+            const formData = new FormData(form);
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (response.ok) {
+                    const newProduct = await response.json();
+                    alert('Product saved successfully!');
+                    addProductToTable(newProduct);
+                    form.reset(); // Clear form fields
+                } else {
+                    const errorText = await response.text();
+                    alert(`Error saving product: ${errorText}`);
+                }
+            } catch (error) {
+                alert('Error saving product!');
+                console.error(error);
+            }
+        }; --}}
+
+
+
+        document.getElementById("saveButton").onclick = async function (event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    const form = document.getElementById("productForm");
+    const formData = new FormData(form); // Create a FormData object from the form
+
+    try {
+        // Send formData using fetch
+        const response = await fetch(form.action, {
+            method: 'POST',
+            body: formData, // Pass the form data as the request body
+        });
+
+        if (response.ok) {
+            const newProduct = await response.json(); // Parse the JSON response
+            alert('Product saved successfully!');
+            addProductToTable(newProduct); // Add the new product to the table
+            form.reset(); // Clear form fields after successful submission
+        } else {
+            const errorText = await response.text();
+            alert(`Error saving product: ${errorText}`); // Display error message
+        }
+    } catch (error) {
+        alert('Error saving product!'); // Generic error handling
+        console.error(error); // Log the error to the console
+    }
+};
+
+
+        // Function to add new product to table
+        function addProductToTable(product) {
+            const newRow = document.createElement('tr');
+            newRow.dataset.id = product._id; // Use product ID for future edits/deletes
+            newRow.innerHTML = `
+                <td>${document.querySelectorAll("#productTableBody tr").length + 1}</td>
+                <td>${product.name}</td>
+                <td>${product.price}</td>
+                <td>${new Date(product.createdAt).toLocaleDateString()}</td>
+                <td><span style="color:green;">✔️</span></td>
+                <td>
+                    <button class="editButton" data-id="${product._id}" data-name="${product.name}" data-description="${product.description}" data-price="${product.price}" data-imageurl="${product.imageUrls.join(', ')}">Edit</button>
+                    <button class="deleteButton">Delete</button>
+                </td>`;
+            document.getElementById("productTableBody").appendChild(newRow);
+        }
+
+        // Event delegation for edit and delete buttons
+        document.getElementById('productTableBody').addEventListener('click', async (event) => {
+            if (event.target.classList.contains('deleteButton')) {
+                const productId = event.target.closest('tr').dataset.id;
+                const response = await fetch(`/delete-product/${productId}`, { method: 'DELETE' });
+                if (response.ok) {
+                    alert('Product deleted successfully!');
+                    event.target.closest('tr').remove(); // Remove the row from the table
+                } else {
+                    alert('Error deleting product!');
+                }
+            } else if (event.target.classList.contains('editButton')) {
+                const productRow = event.target.closest('tr');
+                const productId = productRow.dataset.id;
+                const name = event.target.getAttribute('data-name');
+                const description = event.target.getAttribute('data-description');
+                const price = event.target.getAttribute('data-price');
+                const imageUrls = event.target.getAttribute('data-imageurl');
+
+                // Populate the edit modal with product details
+                $('#editProductId').val(productId);
+                $('#editProductName').val(name);
+                $('#editProductDescription').val(description);
+                $('#editProductPrice').val(price);
+                $('#editProductImageUrls').val(imageUrls);
+
+                // Show the edit modal
+                $('#editProductModal').modal('show');
+            }
+        });
+
+        // Handle the form submission for editing a product
+        $('#editProductForm').on('submit', function(e) {
+            e.preventDefault(); // Prevent default form submission
+
+            const productData = {
+                id: $('#editProductId').val(),
+                name: $('#editProductName').val(),
+                description: $('#editProductDescription').val(),
+                price: $('#editProductPrice').val(),
+                imageUrls: $('#editProductImageUrls').val().split(',').map(url => url.trim()), // Convert to array
+            };
+
+            // Send AJAX request to update the product
+            $.ajax({
+                type: 'POST',
+                url: '/edit-product/' + productData.id,
+                data: productData,
+                success: function(response) {
+                    // Close the modal
+                    $('#editProductModal').modal('hide');
+
+                    // Update the product row in the table
+                    const productRow = $(`#productTableBody tr[data-id='${productData.id}']`);
+                    productRow.find('td:nth-child(2)').text(productData.name);
+                    productRow.find('td:nth-child(3)').text(productData.price);
+                    // Update other fields as necessary
+                },
+                error: function() {
+                    alert('Error saving product');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

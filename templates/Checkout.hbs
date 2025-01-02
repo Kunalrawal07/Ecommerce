@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - E-Commerce</title>
+    <style>
+                /* Navbar Styles *//* Navbar Styles */
+                *{
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+
+                }
+.navbar {
+    position: relative;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2c3e50;
+    padding: 15px 20px;
+    color: #fff;
+    margin-bottom: 50px;
+    width: 1500px;
+
+}
+
+.navbar-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.navbar-links li {
+    position: relative;
+}
+
+.navbar-links a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar-links a:hover {
+    text-decoration: underline;
+}
+
+.search-container {
+    display: flex;
+    
+}
+
+.search-container input[type="text"] {
+    padding: 8px;
+    border: none;
+    width: 200px;
+    border-radius: 5px;
+}
+
+.search-container .search {
+    padding: 8px;
+    background-color: #2980b9;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 80px;
+}
+
+.search-container button:hover {
+    background-color: #3498db;
+}
+
+.login{
+    height: 33px;
+    width: 65px;
+    background-color: rgb(90, 90, 198);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.signup{
+    cursor: pointer;
+    height: 33px;
+    width: 65px;
+    background-color: rgb(90, 90, 198);
+    color: white;
+    border: none;
+}
+
+/* Profile Dropdown Styles */
+.profile-section {
+    display: flex;
+    position: relative; /* Set this to relative for dropdown positioning */
+    margin-left: 20px; /* Space between the search bar and profile */
+    margin-right: 50px;
+    width: 150px;
+}
+
+.profile-dropdown {
+    position: relative;
+    left: 110px;
+
+}
+
+.profile-btn {
+    margin-top: 5px;
+    background: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 5px;
+    background-color: #fff;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    color: #333;
+    border-radius: 5px;
+}
+
+.dropdown-content a,
+.dropdown-content button {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border: none;
+    background: none;
+    text-align: left;
+}
+
+.dropdown-content a:hover,
+.dropdown-content button:hover {
+    background-color: #f1f1f1;
+}
+
+/* Show dropdown on hover */
+.profile-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+.user-icon{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cart{
+    margin-top: 5px;
+    margin-right: 50px;
+
+}
+    
+
+
+        {{!-- navbar css end  --}}
+
+        body { font-family: Arial, sans-serif; 
+        padding: 20px;
+        background-color: #f8f8f8; 
+        }
+
+        .container {
+             max-width: 1200px; 
+             margin: 0 auto; 
+             display: flex; 
+             gap: 20px;
+              }
+
+        .left-section {
+             flex: 2; 
+             background-color: #fff; 
+             padding: 20px; 
+             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+             }
+
+        .right-section { 
+            flex: 1; 
+            background-color: #fff;
+            padding: 20px; 
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+            }
+
+        .product-summary { margin-bottom: 20px; }
+        .product-summary h3 { font-size: 18px; }
+        label { font-weight: bold; }
+        input, textarea { width: 100%; padding: 10px; margin: 5px 0 15px; border: 1px solid #ccc; border-radius: 4px; }
+        button { background-color: #b12704; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; width: 100%; }
+        button:hover { background-color: #a12003; }
+        .summary-title { font-size: 20px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+
+<nav class="navbar" id="navbar">
+    <div class="navbar-logo"> Apna Electrician </div>
+    <ul class="navbar-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="tel:+1234567890">Call Now</a></li>
+    </ul>
+    <div class="search-container">
+        {{!-- <form id="search-form" onsubmit="return handleSearch(event)">
+            <input type="text" id="search-input" placeholder="Search..." />
+            <button class="search" type="submit">Search</button>
+        </form> --}}
+    </div>
+    <div class="profile-section">
+        {{#if username}}
+        <div class="profile-dropdown">
+            <div class="user-icon">
+                <img src="https://cdn-icons-png.flaticon.com/128/4140/4140037.png" width="30px" alt="User" height="30px" />
+                <span class="profile-btn">{{username}}</span>
+            </div>
+            <div class="dropdown-content">
+                <a href="/profile">Profile Settings</a>
+                {{!-- <a href="/orders">Order History</a> --}}
+                <form action="/logout" method="POST">
+                    <button type="submit">Logout</button>
+                </form>
+            </div>
+        </div>
+        <a href="/cart"><img class="cart" src="https://cdn-icons-png.flaticon.com/128/3523/3523887.png" height="35px" width="35px" /></a>
+        {{else}}
+        <button onclick="window.location.href='/login'" class="login">Login</button>
+        <button onclick="window.location.href='/signup'" class="signup">Signup</button>
+        {{/if}}
+    </div>
+</nav>
+
+
+    <main>
+        <div class="container"  >
+            <!-- Left Section: Order Details Form -->
+            <div class="left-section">
+<form id="checkout-form" action="/place-multiple-orders" method="POST">
+                    <h3>Order Summary</h3>
+                    <div id="checkout-items"></div>
+
+                    <h3>Customer Details</h3>
+                    <label for="fullname">Full Name:</label>
+                    <input type="text" name="fullname" required />
+
+                    <label for="mobileNo">Mobile No:</label>
+                    <input type="number" name="mobileNo" required />
+
+                    <label for="emailAddress">Email Address:</label>
+                    <input type="email" name="emailAddress" required />
+
+                    <label for="state">State:</label>
+                    <input type="text" name="state" required />
+
+                    <label for="pincode">Pin Code:</label>
+                    <input type="number" name="pincode" required />
+
+                    <label for="shippingAddress">Shipping Address:</label>
+                    <textarea name="shippingAddress" id="shippingAddress" rows="4" required></textarea>
+                {{!-- <button type="button" onclick="placeOrder()" >Order Now</button> --}}
+                </form>
+            </div>
+
+            <!-- Right Section: Summary -->
+            <div class="right-section">
+                <div class="summary-title">Order Summary</div>
+                <p>Total Items: <span id="total-items">0</span></p>
+                <p>Total Price: ₹<span id="total-price">0</span></p>
+                <br>
+                <button type="button" onclick="placeOrder()" >Order Now</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="../public/navbar.js"> </script>
+
+    <script>
+        window.onload = function() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            if (cart.length === 0) {
+                document.getElementById('checkout-items').innerHTML = '<p>Your cart is empty.</p>';
+            } else {
+                let checkoutItemsHTML = '';
+                let totalQuantity = 0;
+                let totalPrice = 0;
+
+                cart.forEach(item => {
+                    checkoutItemsHTML += `
+                        <div class="product-summary">
+                            <h3>${item.name}</h3>
+                            <p>Price: ₹${item.price}</p>
+                            <p>Quantity: ${item.quantity}</p>
+                        </div>
+                    `;
+                    totalQuantity += item.quantity;
+                    totalPrice += item.price * item.quantity;
+                });
+
+                document.getElementById('checkout-items').innerHTML = checkoutItemsHTML;
+                document.getElementById('total-items').innerText = totalQuantity;
+                document.getElementById('total-price').innerText = totalPrice;
+            }
+        };
+async function placeOrder() {
+    const form = document.getElementById('checkout-form');
+    
+    // Collect form data into an object
+    const formData = {
+        fullname: form.fullname.value,
+        mobileNo: form.mobileNo.value,
+        emailAddress: form.emailAddress.value,
+        state: form.state.value,
+        pincode: form.pincode.value,
+        shippingAddress: form.shippingAddress.value,
+    };
+
+    // Validate form fields
+    const requiredFields = ['fullname', 'mobileNo', 'emailAddress', 'state', 'pincode', 'shippingAddress'];
+    for (const field of requiredFields) {
+        if (!formData[field].trim()) {
+            alert(`${field} is required!`);
+            return;
+        }
+    }
+
+    // Retrieve cart data
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    if (cart.length === 0) {
+        alert('Your cart is empty!');
+        return;
+    }
+
+    // Combine form data and cart data
+    const orderData = { ...formData, cart };
+
+    try {
+       const response = await fetch('/place-multiple-orders', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(orderData),
+});
+
+
+        const result = await response.json();
+
+        if (result.success) {
+         //   alert('Order placed successfully!');
+            localStorage.removeItem('cart'); // Clear the cart
+            window.location.href = '/congratulations'; // Redirect to the congratulations page
+        } else {
+            alert(result.message || 'Error placing the order.');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('There was an issue processing your order. Please try again.');
+    }
+}
+
+    </script>
+</body>
+</html>
