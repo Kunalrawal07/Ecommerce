@@ -10,13 +10,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <link rel="apple-touch-icon" sizes="180x180" href="../public/apple-touch-icon.png">
-{{!-- <link rel="icon" type="image/png" sizes="32x32" href="../public/android-chrome-192x192.png">
-<link rel="icon" type="image/png" sizes="16x16" href="../public/android-chrome-512x512.png"> --}}
-
-{{!-- <link rel="icon" href="../public/apna electrician.png" type="image/png" /> --}}
-
 
 <link rel="manifest" href="/site.webmanifest">
+
     <title> Apna Electrician - Home </title>
     <style>
         /* Navbar Styles */
@@ -694,6 +690,460 @@ body.modal-open {
     }
 
 
+
+    /*  Media Query */
+
+    /* General Styles for Mobile Devices */
+@media only screen and (max-width: 768px) {
+  /* Navbar */
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .navbar-logo {
+    font-size: 1.5em;
+  }
+
+  .navbar-links {
+    display: none; /* Hide links initially */
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .navbar-links li {
+    margin: 5px 0;
+  }
+
+  .navbar-links a {
+    display: block;
+    padding: 10px;
+    text-align: left;
+  }
+
+  .hamburger {
+    display: block;
+    cursor: pointer;
+    font-size: 1.5em;
+    margin-left: auto;
+    border: none;
+    background: none;
+  }
+
+  /* Show links when hamburger is active */
+  .navbar-links.show {
+    display: flex;
+  }
+
+  /* Search Bar */
+  .search-container {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .search-container input {
+    width: calc(100% - 20px);
+  }
+
+  /* Product Cards */
+  .product-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product-card {
+    width: 90%;
+    margin: 10px 0;
+  }
+
+  .product-card img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Footer */
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-links ul {
+    text-align: center;
+  }
+
+  .footer-social .social-icons p {
+    text-align: center;
+  }
+}
+
+/* For smaller screens (like phones) */
+@media only screen and (max-width: 480px) {
+  .navbar-logo {
+    font-size: 1.2em;
+  }
+
+  .search-container input {
+    font-size: 0.9em;
+  }
+
+  .product-card {
+    font-size: 0.8em;
+  }
+}
+
+
+    /* New Media Query */
+    /* General Mobile Styles (Tablets and Smaller Screens) */
+@media only screen and (max-width: 768px) {
+  /* Body */
+  body {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+  }
+
+  /* Navbar */
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .navbar-logo {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+
+  .navbar-links {
+    display: none; /* Initially hidden */
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .navbar-links.show {
+    display: flex; /* Show when toggled */
+  }
+
+  .navbar-links li {
+    margin: 5px 0;
+  }
+
+  .navbar-links a {
+    display: block;
+    padding: 10px;
+    text-align: left;
+  }
+
+  .hamburger {
+    display: block;
+    cursor: pointer;
+    font-size: 1.5em;
+    margin-left: auto;
+    border: none;
+    background: none;
+  }
+
+  /* Search Bar */
+  .search-container {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .search-container input {
+    width: calc(100% - 20px);
+    padding: 10px;
+  }
+
+  .search-container button {
+    width: 100%;
+    margin-top: 5px;
+  }
+
+  /* Modal */
+  .modal-content {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .modal-content h2 {
+    font-size: 1.5em;
+  }
+
+  .modal-content p {
+    font-size: 1em;
+  }
+
+  /* Category Buttons */
+  .category {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+    margin-top: 75px;
+  }
+
+  .category button {
+    flex: 1 1 45%;
+    max-width: 45%;
+    font-size: 0.9em;
+    padding: 10px;
+  }
+
+  /* Product Cards */
+  .product-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product-card {
+    width: 90%;
+    margin: 10px 0;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  .product-card img {
+    width: 100%;
+    height: auto;
+  }
+
+  .product-title {
+    font-size: 1em;
+    text-align: center;
+  }
+
+  .product-price {
+    font-size: 0.9em;
+    text-align: center;
+  }
+
+  .product-card button {
+    width: 90%;
+    margin: 10px auto;
+  }
+
+  /* Slideshow */
+  #slides {
+    width: 100%;
+    height: auto;
+  }
+
+  .frame-content img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Footer */
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-links ul {
+    padding: 0;
+    list-style: none;
+  }
+
+  .footer-links ul li {
+    margin: 5px 0;
+  }
+
+  .footer-social .social-icons p {
+    margin: 5px 0;
+  }
+}
+
+/* Small Screens (Phones) */
+@media only screen and (max-width: 480px) {
+  .navbar-logo {
+    font-size: 1.2em;
+  }
+
+  .category button {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .product-card {
+    font-size: 0.8em;
+  }
+
+  .product-title {
+    font-size: 0.9em;
+  }
+
+  .modal-content h2 {
+    font-size: 1.2em;
+  }
+
+  .modal-content p {
+    font-size: 0.9em;
+  }
+
+  .search-container input {
+    border: 1px solid white;
+    font-size: 0.9em;
+  }
+
+  .footer-logo h2 {
+    font-size: 1em;
+  }
+
+  .footer-links ul {
+    font-size: 0.9em;
+  }
+
+  .footer-social .social-icons p {
+    font-size: 0.9em;
+  }
+}
+
+
+
+
+/* Media Query For Slider  */
+
+
+/* Media Query Addeed  */
+
+@media only screen and (max-width: 500px) {
+
+    #slides{
+        height: 180px;
+        max-width: 300px;
+        
+
+    }
+
+
+    #frame{
+        width: 320px;
+    }
+
+    .frame-content{
+        margin-bottom: 180px;
+    }
+
+    .frame-content > img{
+        background-position: center;
+        background-size: cover;
+        height: 150px;
+    }
+
+    .ctgy{
+        padding-bottom: 35px;
+
+    }
+
+    .category{
+        width: 220px;
+        text-align: center;
+        margin: auto;
+    }
+
+
+
+   .footer-container{
+    text-align: center;
+    
+   }
+
+   .footer-logo{
+    max-height: 80px;
+    padding-left: 40px;
+    padding-bottom: 80px;
+    text-align: start;
+   }
+
+   .footer-logo > h2{
+    font-size: 30px;
+    padding-bottom: 20px;
+   }
+
+    footer {
+        padding: 20px 10px;
+        text-align: start;
+    }
+
+    .footer-container {
+        flex-direction: column;
+    }
+
+    .footer-links{
+        align-items: start;
+        text-align: start;
+    }
+
+    .footer-contact{
+        text-align: start;
+    }
+
+    .footer-logo {
+        position: relative;
+        right: 35px;
+        margin-bottom: 30px;
+        text-align: start;
+    }
+
+    .social-icons{
+        text-align: center;
+
+    }
+
+    .footer-social{
+        text-align: start;
+    }
+
+    .footer-links, .footer-contact, .footer-social {
+        flex: 1 1 100%;
+        margin-bottom: 20px;
+    }
+
+    .footer-social .social-icons {
+        text-align: start;
+        flex-direction: column;
+    }
+
+    .footer-social .social-icons p {
+        margin-bottom: 10px;
+        text-align: start;
+    }
+
+    .footer-links li {
+        margin-bottom: 8px;
+    }
+
+    .footer-links {
+         position: relative;
+        right: 90px;
+        margin-bottom: 50px;
+    }
+
+    .footer-links > ul{
+        text-align: start;  
+    }
+
+    .footer-social{
+        text-align: start;
+         position: relative;
+        right: 100px;
+    }
+
+    .footer-contact {
+        position: relative;
+        left: 5px;
+    }
+}
+
+
     </style>
 </head>
 
@@ -785,6 +1235,11 @@ body.modal-open {
     </div>
 </nav>
 
+<!-- Hamburger Navbar   --->
+
+
+
+
 <script>
     function handleSearch(event) {
         event.preventDefault(); // Prevent page reload
@@ -823,6 +1278,28 @@ body.modal-open {
             }
         });
     });
+
+
+
+
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+  const hamburger = document.createElement('button');
+  hamburger.classList.add('hamburger');
+  hamburger.innerHTML = '☰'; // Hamburger icon
+  const navbar = document.getElementById('navbar');
+  const navbarLinks = navbar.querySelector('.navbar-links');
+
+  // Add hamburger to navbar
+  navbar.insertBefore(hamburger, navbar.querySelector('.navbar-logo').nextSibling);
+
+  // Toggle navbar links visibility
+  hamburger.addEventListener('click', () => {
+    navbarLinks.classList.toggle('show');
+  });
+});
+
 </script>
 
   <div id="frame">
@@ -897,11 +1374,12 @@ body.modal-open {
     <!-- templates/home.hbs -->
 
     <h1 class="ctgy">  Category </h1>
-
     <div class="category">
+
         <button onclick="handledefault()"> Latest Products </button>
         <button onclick="handlebulb()"> Fan </button>
         <button onclick="handlecamera()"> Security Cameras </button>
+        <button onclick="handlelight()"> Light's </button>
     </div>
 
     <script>
@@ -927,8 +1405,11 @@ body.modal-open {
         const title = product.querySelector('.product-title').innerText.toLowerCase();
         
         // Check if the title contains the keyword "bulb"
-        product.style.display = title.includes('bulb') ? 'block' : 'none';
+        product.style.display = title.includes('fan') ? 'block' : 'none';
     });
+
+
+
 }
 
         // Camera category
@@ -942,6 +1423,19 @@ body.modal-open {
         
         // Check if the title contains the keyword "bulb"
         product.style.display = title.includes('camera') ? 'block' : 'none';
+    });
+}
+        // light category
+        function handlelight(event) {
+           btn = console.log("click")
+    const productContainer = document.getElementById('product-container');
+    const products = [...productContainer.getElementsByClassName('product-card')];
+
+    products.forEach(product => {
+        const title = product.querySelector('.product-title').innerText.toLowerCase();
+        
+        // Check if the title contains the keyword "bulb"
+        product.style.display = title.includes('Light') ? 'block' : 'none';
     });
 }
 
@@ -1029,7 +1523,7 @@ function addToCart(productId, productName, productPrice, productImage) {
         <div class="footer-logo">
             {{!-- <img src="/path-to-logo/logo.png" alt="E-Commerce Logo" class="logo"> --}}
             <h2> Apna Electrician </h2>
-            <p>&copy; 2024 E-Commerce Store. All rights reserved.</p>
+            <p>&copy; 2025 Apna Electrician Store. All rights reserved.</p>
         </div>
         
         <div class="footer-links">
@@ -1045,9 +1539,10 @@ function addToCart(productId, productName, productPrice, productImage) {
 
         <div class="footer-contact">
             <h3>Contact Us</h3>
-            <p>Email: support@ecommerce.com</p>
-            <p>Phone: +123 456 7890</p>
-            <p>Address: 123 E-Commerce St, Online City, 00000</p>
+            <p>Email: apnaelectrician.com@gmail.com</p>
+            <p>Phone: +91 7800905998</p>
+            <p>Address: 
+Lohegaon, Pune </p>
         </div>
 
         <div class="footer-social">

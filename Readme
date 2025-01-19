@@ -29,31 +29,37 @@
 # Add Cash On Delivery Option
 # Product Category -- half done
 # Page Adding ( About us , etc)
-# E mail check -----
-# Profile Section update ---
+# E mail check 
+# Profile Section update
 # Signup Page - add more details
+# Admin Control change  
+# add navbar to all pages with responsive 
+# Responsive 
+# UI Changes
+
+# Testing once and check all pages
 
 
 
 
-# Admin Control change  ------
-# add navbar to all pages with responsive ----
-# forgot password----
+
 
 
 
 ## Remaning Task
-# UI Changes
-# Responsive 
+# Navbar changes in responsive  mode 
+# change congralutation page details 
+# change Home Slider
+# change footer details 
+# check all additonal pages for details checking 
+# change logo and name 
+# forgot password----
 
-
-# Testing once and check all pages
 
 ## Finaly We are Eligible For Live Now
 
 
 
-# .env file add
 
 
 
@@ -61,6 +67,7 @@
 
 
 ## Future Task
+# .env file add
 # invoice layout change
 # JWT Token
 

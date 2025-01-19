@@ -351,12 +351,8 @@
     text-decoration: none;
 }
 
-
-      
-
-        {{!-- footer css  --}}
-
         footer {
+            max-width: 2050px;
             text-align: center;
             padding: 10px 0;
             background-color: #333;
@@ -367,7 +363,6 @@
         footer {
     background-color: #333;
     color: #fff;
-    padding: 40px 20px;
     text-align: left;
 }
 
@@ -375,15 +370,14 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    max-width: 1200px;
+    max-width:  1800px;
     margin: auto;
 }
 
 .footer-logo {
     flex: 1 1 250px;
-    margin-bottom: 70px;
-    padding-right: 50px;
-    padding-bottom: 30px;
+    margin-left: 20px;
+    margin-top: 10px;
 }
 
 .footer-logo img {
@@ -410,7 +404,6 @@
 }
 .social-icons{
     position: relative;
-    bottom: 15px;
 }
 
 
@@ -467,6 +460,217 @@
     font-family: "Amazon Ember", Arial, sans-serif;
         text-align: -webkit-match-parent;
 }
+
+
+    /* Media query for responsive 
+     */
+     /* For tablets and larger smartphones */
+@media (max-width: 768px) {
+    .navbar-links {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .mobile-menu.show {
+        display: flex;
+    }
+
+    .product-details {
+        flex-direction: column;
+    }
+
+    .image-container {
+        width: 100%;
+    }
+
+    .details {
+        width: 100%;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .more-products-container {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}
+
+/* For smaller smartphones */
+@media (max-width: 480px) {
+    .navbar {
+        padding: 10px;
+    }
+
+    .product-title {
+        font-size: 20px;
+    }
+
+    .product-price {
+        font-size: 18px;
+    }
+
+    .button {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+
+    .footer-section {
+        padding: 10px 0;
+    }
+
+    .thumbnail {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+
+/* New media query added  */
+
+@media only screen and (max-width: 500px) {
+
+    #slides{
+        height: 180px;
+        max-width: 300px;
+        
+
+    }
+
+
+    #frame{
+        width: 320px;
+    }
+
+    .frame-content{
+        margin-bottom: 180px;
+    }
+
+    .frame-content > img{
+        background-position: center;
+        background-size: cover;
+        height: 150px;
+    }
+
+    .ctgy{
+        padding-bottom: 35px;
+
+    }
+
+    .category{
+        width: 220px;
+        text-align: center;
+        margin: auto;
+    }
+
+    footer{
+
+    max-width: 1800px;
+    }
+
+
+   .footer-container{
+    text-align: center;
+    
+   }
+
+   .footer-logo{
+    max-height: 80px;
+    margin-left: 50px;
+    text-align: start;
+   }
+
+   .footer-logo > h2{
+    font-size: 30px;
+    padding-bottom: 20px;
+   }
+
+    footer {
+        text-align: start;
+    }
+
+    .footer-container {
+        flex-direction: column;
+    }
+
+    .footer-links{
+        align-items: start;
+        text-align: start;
+        margin-left: 50px;
+        margin-top: 50px;
+    }
+
+    .footer-contact{
+        text-align: start;
+        margin-left: 10px;
+        text-wrap: wrap;
+        text-rendering: auto;
+    }
+
+    .footer-logo {
+        position: relative;
+        right: 35px;
+        margin-bottom: 30px;
+        text-align: start;
+    }
+
+    .social-icons{
+        text-align: center;
+
+    }
+
+    .footer-social{
+        margin-left: 40px;
+        text-align: start;
+    }
+
+    .footer-links, .footer-contact, .footer-social {
+        flex: 1 1 100%;
+        margin-bottom: 20px;
+    }
+
+    .footer-social .social-icons {
+        text-align: start;
+        flex-direction: column;
+    }
+
+    .footer-social .social-icons p {
+        margin-bottom: 10px;
+        text-align: start;
+    }
+
+    .footer-links li {
+        margin-bottom: 8px;
+    }
+
+    .footer-links {
+         position: relative;
+        right: 90px;
+        margin-bottom: 50px;
+    }
+
+    .footer-links > ul{
+        text-align: start;  
+    }
+
+    .footer-social{
+        text-align: start;
+         position: relative;
+        right: 100px;
+    }
+
+    .footer-contact {
+        position: relative;
+        left: 5px;
+    }
+}
+
+
+
 
     </style>
 
@@ -616,7 +820,7 @@
         <div class="footer-logo">
             {{!-- <img src="/path-to-logo/logo.png" alt="E-Commerce Logo" class="logo"> --}}
             <h2> Apna Ecommerce </h2>
-            <p>&copy; 2024 E-Commerce Store. All rights reserved.</p>
+            <p>&copy; 2025 E-Commerce Store. All rights reserved.</p>
         </div>
         
         <div class="footer-links">
@@ -632,9 +836,10 @@
 
         <div class="footer-contact">
             <h3>Contact Us</h3>
-            <p>Email: support@ecommerce.com</p>
-            <p>Phone: +123 456 7890</p>
-            <p>Address: 123 E-Commerce St, Online City, 00000</p>
+            <p>Email: apnaelectrician.com@gmail.com</p>
+            <p>Phone: +91 7800905998</p>
+            <p>Address: 
+Lohegaon, Pune</p>
         </div>
 
         <div class="footer-social">

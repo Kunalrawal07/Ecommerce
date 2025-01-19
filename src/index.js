@@ -23,6 +23,9 @@ const hbs = require('hbs');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+
+
+
 // Session middleware
 app.use(session({
     secret: 'rawalKunal', // Use a strong secret key for production
@@ -51,10 +54,10 @@ app.get('/session-status', (req, res) => {
 // Serve static files from the 'public' directory
 app.use(express.static('public'));
 
-app.get('/admin', async (req, res) => {
+app.get('/admin123456789@gmail', async (req, res) => {
   try {
     const products = await Product.find();  // Fetch all products
-    res.render('admin', { products });      // Render the admin page with products
+    res.render('admin123456789@gmail', { products });      // Render the admin page with products
   } catch (error) {
     res.status(500).send('Error fetching products');
   }
@@ -138,8 +141,8 @@ app.get('/Checkout',(req,res) => {
 })
 
 // new updated code 
-app.get('/admin', (req,res) =>(
-  res.render('admin')
+app.get('/admin123456789@gmail', (req,res) =>(
+  res.render('admin123456789@gmail')
 ));
 
 app.get('/aboutus',(req,res)=>{

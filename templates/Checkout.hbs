@@ -201,6 +201,77 @@
         button { background-color: #b12704; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; width: 100%; }
         button:hover { background-color: #a12003; }
         .summary-title { font-size: 20px; font-weight: bold; }
+
+
+
+        /* Default: Larger devices (desktops, laptops) */
+/* Already defined styles remain as-is */
+
+/* Tablets and medium screens (max-width: 768px) */
+@media (max-width: 768px) {
+    .navbar {
+        flex-wrap: wrap;
+        padding: 10px;
+        width: 100%;
+    }
+
+    .navbar-links {
+        display: none;
+    }
+
+    .hamburger-menu {
+        display: block; /* Add a hamburger menu for navigation */
+    }
+
+    .container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .left-section, .right-section {
+        width: 100%;
+    }
+
+    .product-summary h3, .summary-title {
+        font-size: 18px;
+    }
+}
+
+/* Smartphones (max-width: 480px) */
+@media (max-width: 480px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar-logo {
+        font-size: 1.2rem;
+    }
+
+    .search-container {
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    input, textarea, button {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .left-section, .right-section {
+        padding: 15px;
+    }
+
+    .right-section {
+        margin-top: 10px;
+    }
+
+    .product-summary h3, .summary-title {
+        font-size: 16px;
+    }
+}
+
     </style>
 </head>
 <body>

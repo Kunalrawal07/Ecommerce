@@ -18,7 +18,8 @@
         <form action="/signup" method="post"> 
             <input type="text" name="name" placeholder="Enter your username" required />
             <input type="email" name="email" placeholder="Enter your email" required />
-            <input type="tel" name="phone" placeholder="Enter your phone number" required />
+            <input type="tel" name="phone" placeholder="Enter your phone number" required  pattern="^[6789]\d{9}$" 
+                   title="Phone number must start with 6, 7, 8, or 9 and be 10 digits long"  />
             <input type="password" name="password" placeholder="Enter your password" required />
             <input type="submit" value="Sign Up">
         </form>
