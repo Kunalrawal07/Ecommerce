@@ -24,5 +24,6 @@
   "scripts": {
     "build": "react-scripts build",
     "start": "node app.js"
+ 
   }
 }
