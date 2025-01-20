@@ -23,6 +23,6 @@
   },
   "scripts": {
     "build": "echo 'No build step required'",
-    "start": "node index.js"
+"start": "node src/index.js"
   }
 }
