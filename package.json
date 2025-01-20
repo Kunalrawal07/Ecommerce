@@ -22,7 +22,7 @@
     "some-module": "^0.0.3"
   },
   "scripts": {
-    "build": "react-scripts build",
+    "build": "echo 'No build step required'",
     "start": "node index.js"
   }
 }
