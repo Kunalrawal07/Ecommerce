@@ -1,99 +1,324 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    {{!-- <link rel="icon" href="../public/apna electrician.png" type="image/png" /> --}}
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-    <link rel="apple-touch-icon" sizes="180x180" href="../public/apple-touch-icon.png">
+   
+     <meta name="description" content="Shop the latest collection of electrical products at Apna Electricon. Find premium quality switches, sockets, wires, and more at affordable prices. Free shipping and easy returns." />
+    <meta name="keywords" content="electrical products, switches, sockets, wires, electrical accessories, Apna Electricon, buy electrical products online" />
+    <meta name="author" content="Apna Electricon - Vipul Singh" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://apnaelectrician.com/" />
 
-<link rel="manifest" href="/site.webmanifest">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAbCAMAAABY1h8eAAABRFBMVEX/////9eT/4LT/0I7/x3j/w3X/xoT/0aH/5s7/6MD/zGf/15f/69D/+fD//Pf/79//17H/tGf/xpT/+ez/0Gf/5bX/rmT/1bf/8tTi5eZaaHJ2gYmXnaOKkpnO0tXw8fL/y6T/uob/2HMACixFVGC/w8Y5SVa0ub0DKDz/2GP/y6r/33nc6vvz/P//pmr/5ZZ+o9tSc6V2e4lHWHsAH4BBfcr/s4X/5IljeYeQpLUAF1ghPXDCwsGZl5QqPEwAY8UARLGqx+pujsMAW8QgWqJmf50Md9X/6aPg4OYNccU8W3eopqMARHJThMr/8sWwucwAW7dPRTRrZmIthbklnub01NXmnJzZWlruvr6TpcYvb7V7enkAAABLS0sAOq7k7vrCy9ssKidBQD8XEgYAE2P/nlwXHlcAAEyNj6NzdpE+Q2wxNWWVzPvDAAABnklEQVR4AY3R03okQQBA4ROPrVb1qje27aQR28bg/a8XXfP1MvhvT7l4p4bGpuaW1rYQ/wpHorE4JJKpdCbBH7K5PIFkochvSrkEKKiabggT+PDxt/YJ4LP+xdK+tndYQDGoiU4AVH+SaG8H6OpC6s5S19PTS11fXC7aD5jtondgcGh4ZLQHX3IMgPEsMKFMTk0zMzs3v7BYn5oA8Hc0rKXlldkZZXVtfkHOLRaBhnUAO2FMO64wvQ1nfhOA+BiwtQWgmNs7u3Mze/sHqrMAh0fQJ+PxCYjTs73zi8tZt125uv49HpogbiZv2bu43LtTdq6BIAK9M9ze7c3uXXjnl6cEMdsPIBTE+e3lnnIxc27Ji36QV5GR+/P7y9mZCw1fVwhgvQQKOu0P4vziYk8FsOFRXqgb+2lbaTexLEMX7cD2sx3qwre+xXZZIUD7TVlO9HfNUrGrJpJt18r0JQk+NMtkuVzebrdsq2JXBB9DENRcGLZv2u1quTJZJl4I8bt8pAQmtt1LIpOO86dEPtLUGIuF29KtSf4jHguHQ7+X78rWQypWynlvAAAAAElFTkSuQmCC" />
 
-    <title> Apna Electrician - Home </title>
-    <style>
-        /* Navbar Styles */
+    <title>Apna Electricon - Premium Electrical Products Online</title>    <style>
         * {
             font-family: 'Rubik', sans-serif;
-            margin: 0%;
-            padding: 0%;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        .navbar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px 20px;
-            background-color: #333;
-            color: white;
+        /* Navbar Styles */
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: #2c3e50;
+    color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.navbar-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #3498db;
+}
+
+.search-icon {
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+}
+
+.hamburger {
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: none;
+}
+
+.navbar-links {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+    align-items: center;
+    padding-left: 50px;
+}
+
+.navbar-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.navbar-links a:hover {
+    color: #3498db;
+}
+
+.search-container {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-left: auto; /* Push search bar to the left */
+    margin-right: 1rem; /* Add spacing between search bar and buttons */
+}
+
+.search-container input[type="text"] {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 4px;
+    width: 200px;
+    font-size: 1rem;
+}
+
+.search-container button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #3498db;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.search-container button:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.profile-dropdown {
+    position: relative;
+}
+
+.user-icon {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    z-index: 1;
+}
+
+.profile-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a,
+.dropdown-content button {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dropdown-content a:hover,
+.dropdown-content button:hover {
+    background-color: #f1f1f1;
+}
+
+/* Login and Signup Buttons */
+.login,
+.signup {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 25px;
+    background-color: #3498db;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.login:hover,
+.signup:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.login:active,
+.signup:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design for Small Devices */
+@media (max-width: 768px) {
+    .navbar-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #2c3e50;
+        padding: 1rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-links.show {
+        display: flex;
+    }
+
+    .search-icon {
+        display: block;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .search-container {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #2c3e50;
+        padding: 1rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .search-container.show {
+        display: flex;
+    }
+
+    .search-container input[type="text"] {
+        width: calc(100% - 100px);
+    }
+
+    .search-container button {
+        width: 80px;
+    }
+
+    /* Login and Signup Buttons for Mobile */
+    .login,
+    .signup {
+        width: 100%;
+        margin: 0.5rem 0;
+        background-color: #3498db;
+        color: white;
+    }
+
+    .login:hover,
+    .signup:hover {
+        background-color: #2980b9;
+    }
+}
+
+
+
+
+
+       
+       
+
+        /* Category Styles */
+        .ctgy {
+            margin: 3rem 0 1rem 2rem;
+            font-size: 1.5rem;
+            color: #2c3e50;
         }
 
-        .navbar-logo {
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        .navbar-links {
-            display: flex;
-            list-style: none;
-        }
-
-        .navbar-links li {
-            margin: 0 15px;
-        }
-
-        .navbar-links a {
-            color: white;
-            text-decoration: none;
-        }
-
-        .search-container {
-            display: flex;
-            align-items: center;
-        }
-
-        .search-container input[type="text"] {
-            padding: 5px;
-            margin-right: 5px;
-            border: none;
-            border-radius: 3px;
-        }
-
-        .search-container button {
-            padding: 5px 10px;
-            border: none;
-            background-color: #ff5722;
-            color: white;
-            border-radius: 3px;
-            cursor: pointer;
-        }
-
-
-            {{!-- Navbar Css End  --}}
-
-
-
-            {{!-- start produvt container  --}}
-        .product-container {
+        .category {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-around;
-            margin: 20px;
-            position: relative;
-            top: 50px;
+            gap: 1rem;
+            padding: 1rem 2rem;
+            justify-content: flex-start;
+        }
+
+        .category button {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            background-color: #2c3e50;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 150px;
+        }
+
+        .category button:hover {
+            background-color: #3498db;
+            transform: translateY(-2px);
+        }
+
+        /* Product Grid */
+        .product-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .product-card {
-            border: 1px solid #ccc;
-            height: 320px;
-            border-radius: 5px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
             overflow: hidden;
-            margin: 10px;
-            width: 250px;
-            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .image-container {
@@ -105,1071 +330,394 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.05);
         }
 
         .product-title {
-            font-size: 18px;
-            margin: 10px 0 0 20px;
-            white-space: nowrap; /* Prevent wrapping */
-            overflow: hidden; /* Hide overflow text */
-            text-overflow: ellipsis; /* Show ellipsis for overflow text */
-            max-width: 200px; /* Limit title width */
+            padding: 1rem;
+            font-size: 1.1rem;
+            color: #2c3e50;
+            margin: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .product-price {
-            font-size: 16px;
-            color: green;
-            margin-bottom: 10px;
+            padding: 0 1rem;
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 1.2rem;
         }
 
-        .add-to-cart {
-            padding: 5px 10px;
-            background-color: #ff5722;
+        .product-card button {
+            width: calc(100% - 2rem);
+            margin: 1rem;
+        }
+
+        /* Modal Styles */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            max-width: 500px;
+            width: 90%;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .modal.show .modal-content {
+            transform: scale(1);
+        }
+
+        #close-modal {
+            padding: 0.75rem 1.5rem;
+            background-color: #3498db;
             color: white;
             border: none;
-            border-radius: 3px;
+            border-radius: 4px;
             cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 1rem;
         }
 
+        #close-modal:hover {
+            background-color: #2980b9;
+        }
+
+        /* Footer Styles */
         footer {
-            text-align: center;
-            padding: 10px 0;
-            background-color: #333;
+            background-color: #2c3e50;
             color: white;
-            {{!-- border: 2px solid red; --}}
-            margin-top: 87px;
+            padding: 3rem 1rem;
+            margin-top: 4rem;
         }
 
-        header {
-            text-align: center;
-            margin: 20px 0;
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-      {{!-- footer css  --}}
-        footer {
-    background-color: #333;
-    color: #fff;
-    padding: 40px 20px;
-    text-align: left;
-}
-
-.footer-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: auto;
-}
-
-.footer-logo {
-    flex: 1 1 250px;
-    margin-bottom: 70px;
-    padding-right: 50px;
-    padding-bottom: 30px;
-}
-
-.footer-logo img {
-    width: 150px; /* Adjust logo size */
-    margin-bottom: 10px;
-}
-
-.footer-links,
-.footer-contact,
-.footer-social {
-    flex: 1 1 200px;
-    margin-bottom: 20px;
-    gap: 10px;
-}
-
-.footer-links h3,
-.footer-contact h3,
-.footer-social h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
-    border-bottom: 2px solid #fff;
-    padding-bottom: 15px;
-
-}
-.social-icons{
-    position: relative;
-    bottom: 15px;
-}
-
-
-.footer-links ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.footer-links li {
-    margin-bottom: 10px;
-}
-
-.footer-links a {
-    color: #fff;
-    text-decoration: none;
-}
-
-.footer-links a:hover {
-    text-decoration: underline;
-}
-
-.footer-contact p {
-    margin: 5px 0;
-}
-
-.footer-social .social-icons {
-    display: flex;
-    gap: 10px;
-}
-
-.footer-social .social-icons img {
-    width: 30px; /* Adjust size of icons */
-}
-
-@media (max-width: 768px) {
-    .footer-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .footer-logo,
-    .footer-links,
-    .footer-contact,
-    .footer-social {
-        text-align: center;
-    }
-}
-
-
-
-
-.product-description {
-    white-space: pre-wrap; /* This preserves both spaces and line breaks */
-    font-family: "Amazon Ember", Arial, sans-serif;
-        text-align: -webkit-match-parent;
-}
-
-
-
-        {{!-- navbar updated css  --}}
-        /* Navbar Styles *//* Navbar Styles */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #2c3e50;
-    padding: 15px 20px;
-    color: #fff;
-}
-
-.navbar-logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.navbar-links {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.navbar-links li {
-    position: relative;
-}
-
-.navbar-links a {
-    color: #fff;
-    text-decoration: none;
-}
-
-.navbar-links a:hover {
-    text-decoration: underline;
-}
-
-.search-container {
-    display: flex;
-}
-
-.search-container input[type="text"] {
-    padding: 8px;
-    border: none;
-    border-radius: 5px;
-}
-
-.search-container button {
-    padding: 8px;
-    background-color: #2980b9;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.search-container button:hover {
-    background-color: #3498db;
-}
-
-.login{
-    height: 33px;
-    width: 65px;
-    background-color: rgb(90, 90, 198);
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-.signup{
-    cursor: pointer;
-    height: 33px;
-    width: 65px;
-    background-color: rgb(90, 90, 198);
-    color: white;
-    border: none;
-}
-
-/* Profile Dropdown Styles */
-.profile-section {
-    position: relative; /* Set this to relative for dropdown positioning */
-    margin-left: 20px; /* Space between the search bar and profile */
-    margin-right: 50px;
-}
-
-.profile-dropdown {
-    position: relative;
-}
-
-.profile-btn {
-    background: none;
-    color: #fff;
-    cursor: pointer;
-    font-size: 1rem;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    right: 5px;
-    background-color: #fff;
-    min-width: 160px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 5;
-    color: #333;
-    border-radius: 5px;
-}
-
-.dropdown-content a,
-.dropdown-content button {
-    color: #333;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    border: none;
-    background: none;
-    text-align: left;
-}
-
-.dropdown-content a:hover,
-.dropdown-content button:hover {
-    background-color: #f1f1f1;
-}
-
-/* Show dropdown on hover */
-.profile-dropdown:hover .dropdown-content {
-    display: block;
-}
-
-
-.user-icon{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-
-
-.cart{
-    position: relative;
-    position: absolute;
-    left: -80px;
-    bottom: 5px;
-    cursor: pointer;
-}
-
-
-
-.view-more-button{
-    color: black;
-}
-button > .view-more-button{
-    list-style: none;   
-    text-decoration: none;
-    max-width: 170px;
-
-}
-
-#cart{
- height: 33px;
-    width: 95px;
-    background-color: rgb(90, 90, 198);
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-#view{
- height: 33px;
-    width: 80px;
-    background-color: rgb(90, 90, 198);
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-
- {{!-- slider bar  --}}
- {{!-- slider bar  --}}
-
-        #frame {
-            position: relative;
-            top: 50px;
-    margin: 0 auto;
-    width: 1300px;
-    max-width: 100%;
-    height: 380px;
-    text-align: center;
-    /* border: 10px solid red; */
-
-}
-
-#frame input[type=radio] {
-    display: none;
-}
-
-#frame label {
-    cursor: pointer;
-    text-decoration: none;
-}
-
-#slides {
-    padding: 2px;
-    height: 350px;
-    background: #00F;
-    position: relative;
-    z-index: 1;
-}
-
-#overflow {
-    width: 100%;
-    overflow: hidden;
-}
-
-#frame1:checked~#slides .inner {
-    margin-left: 0;
-}
-
-#frame2:checked~#slides .inner {
-    margin-left: -100%;
-}
-
-#frame3:checked~#slides .inner {
-    margin-left: -200%;
-}
-
-#frame4:checked~#slides .inner {
-    margin-left: -300%;
-}
-
-#slides .inner {
-    transition: margin-left 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
-    width: 400%;
-    line-height: 0;
-    height: 350px;
-}
-
-#slides .frame {
-    width: 25%;
-    float: left;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    color: #FFF;
-}
-
-#slides .frame_1 {
-    /* background: #90C; */
-    height: 350px;
-}
-
-#slides .frame_2 {
-    /* background: #F90; */
-    height: 350px;
-
-}
-
-#slides .frame_3 {
-    /* background: #606; */
-    height: 350px;
-
-}
-
-#slides .frame_4 {
-    /* background: #C00; */
-    height: 350px;
-
-}
-
-.footer-contact > img{
-    border: 5px solid red;
-}
-
-#controls {
-    margin: -180px 0 0 0;
-    width: 100%;
-    height: 50px;
-    z-index: 3;
-    position: relative;
-}
-
-#controls label {
-    transition: opacity 0.2s ease-out;
-    display: none;
-    width: 50px;
-    height: 50px;
-    opacity: .4;
-}
-
-#controls label:hover {
-    opacity: 1;
-}
-
-#frame1:checked~#controls label:nth-child(2),
-#frame2:checked~#controls label:nth-child(3),
-#frame3:checked~#controls label:nth-child(4),
-#frame4:checked~#controls label:nth-child(1) {
-    background:
-         url(https://image.flaticon.com/icons/svg/130/130884.svg) no-repeat; 
-    float: right;
-    margin: 0 -50px 0 0;
-    display: block;
-}
-
-#frame1:checked~#controls label:nth-last-child(2),
-#frame2:checked~#controls label:nth-last-child(3),
-#frame3:checked~#controls label:nth-last-child(4),
-#frame4:checked~#controls label:nth-last-child(1) {
-    background:
-        url(https://image.flaticon.com/icons/svg/130/130882.svg) no-repeat;
-    float: left;
-    margin: 0 0 0 -50px;
-    display: block;
-}
-
-#bullets {
-    margin: 150px 0 0;
-    text-align: center;
-}
-
-#bullets label {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border-radius: 100%;
-    background: #ccc;
-    margin: 0 10px;
-}
-
-#frame1:checked~#bullets label:nth-child(1),
-#frame2:checked~#bullets label:nth-child(2),
-#frame3:checked~#bullets label:nth-child(3),
-#frame4:checked~#bullets label:nth-child(4) {
-    background: #444;
-}
-
-@media screen and (max-width: 900px) {
-
-    #frame1:checked~#controls label:nth-child(2),
-    #frame2:checked~#controls label:nth-child(3),
-    #frame3:checked~#controls label:nth-child(4),
-    #frame4:checked~#controls label:nth-child(1),
-    #frame1:checked~#controls label:nth-last-child(2),
-    #frame2:checked~#controls label:nth-last-child(3),
-    #frame3:checked~#controls label:nth-last-child(4),
-    #frame4:checked~#controls label:nth-last-child(1) {
-        margin: 0;
+        .footer-logo {
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links h3,
+        .footer-contact h3,
+        .footer-social h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #3498db;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            line-height: 2;
+        }
+
+        .footer-links a:hover {
+            color: #3498db;
+        }
+
+        .footer-contact p {
+            margin: 0.5rem 0;
+            line-height: 1.6;
+        }
+
+        .footer-social .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .navbar-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                text-align: center;
+                padding: 1rem 0;
+            }
+
+            .navbar-links.show {
+                display: flex;
+            }
+
+            .search-container {
+                width: 100%;
+                margin: 1rem 0;
+            }
+
+            .search-container input[type="text"] {
+                width: 100%;
+            }
+
+            .profile-section {
+                margin-top: 1rem;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .category {
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .category button {
+                width: 100%;
+            }
+
+            #frame {
+                margin-top: 8rem;
+            }
+
+            #slides {
+                height: 200px;
+            }
+
+            .product-container {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-logo,
+            .footer-links,
+            .footer-contact,
+            .footer-social {
+                text-align: center;
+            }
+
+            .footer-social .social-icons {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar-logo {
+                font-size: 1.2rem;
+            }
+
+            .product-card {
+                margin: 0.5rem;
+            }
+
+            .modal-content {
+                padding: 1rem;
+            }
+
+            #slides {
+                height: 150px;
+            }
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+        }
+
+        /* new addded*/
+          /* Enhanced Slider */
+   #frame {
+        margin: 2rem auto;
+        max-width: 1200px;
+        width: 90%;
+        overflow: hidden;
+        position: relative;
+        top: 50px;
     }
 
     #slides {
-        max-width: calc(100% - 140px);
-        margin: 0 auto;
-    }
-}
-
-
-    {{!-- Modal opening  --}}
- /* Modal Overlay */
-.modal {
-  display: flex; /* Center the modal content */
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
-  z-index: 1000; /* Ensure it's above other elements */
-  visibility: hidden; /* Initially hidden */
-  opacity: 0; /* Initially invisible */
-  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-}
-
-/* Show the modal */
-.modal.show {
-  visibility: visible;
-  opacity: 1;
-}
-
-/* Modal Content */
-.modal-content {
-  background: white;
-  padding: 20px;
-  max-height: 250px;
-  border-radius: 10px;
-  text-align: center;
-  max-width: 500px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  z-index: 1100; /* Keep above the blur */
-  position: relative; /* Ensure it isn't affected by parent blur */
-}
-
-/* Blur effect for the background */
-body.modal-open .content-to-blur {
-  filter: blur(5px); /* Add blur to the background */
-}
-
-/* Prevent scrolling when modal is open */
-body.modal-open {
-  overflow: hidden;
-}
-
-#close-modal{
-    background-color: rgb(46, 46, 156);
-    color: white;
-    width: 70px;
-    height: 50px;
-    border: none;
-    cursor: pointer;
-}
-
-
-    {{!-- categorys --}}
-    .ctgy{
-        margin-top: 60px;
-        margin-left: 50px;
-        margin-bottom: -30px;
-
-    }
-    .category{
-        margin-top: 60px;
-        margin-left: 50px;
-        gap: 20px;
-        margin-bottom: -30px;
-    }
-    .category > button{
-        width: 190px;
-        height: 30px;
-        border: none;
-        background-color: rgb(68, 68, 126);
-        color: white;
-        cursor: pointer;
-    }
-
-    .category > button:hover{
-        background-color: blue;
-    }
-
-
-
-    /*  Media Query */
-
-    /* General Styles for Mobile Devices */
-@media only screen and (max-width: 768px) {
-  /* Navbar */
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px;
-  }
-
-  .navbar-logo {
-    font-size: 1.5em;
-  }
-
-  .navbar-links {
-    display: none; /* Hide links initially */
-    flex-direction: column;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-  }
-
-  .navbar-links li {
-    margin: 5px 0;
-  }
-
-  .navbar-links a {
-    display: block;
-    padding: 10px;
-    text-align: left;
-  }
-
-  .hamburger {
-    display: block;
-    cursor: pointer;
-    font-size: 1.5em;
-    margin-left: auto;
-    border: none;
-    background: none;
-  }
-
-  /* Show links when hamburger is active */
-  .navbar-links.show {
-    display: flex;
-  }
-
-  /* Search Bar */
-  .search-container {
-    width: 100%;
-    margin: 10px 0;
-  }
-
-  .search-container input {
-    width: calc(100% - 20px);
-  }
-
-  /* Product Cards */
-  .product-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .product-card {
-    width: 90%;
-    margin: 10px 0;
-  }
-
-  .product-card img {
-    max-width: 100%;
-    height: auto;
-  }
-
-  /* Footer */
-  .footer-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .footer-links ul {
-    text-align: center;
-  }
-
-  .footer-social .social-icons p {
-    text-align: center;
-  }
-}
-
-/* For smaller screens (like phones) */
-@media only screen and (max-width: 480px) {
-  .navbar-logo {
-    font-size: 1.2em;
-  }
-
-  .search-container input {
-    font-size: 0.9em;
-  }
-
-  .product-card {
-    font-size: 0.8em;
-  }
-}
-
-
-    /* New Media Query */
-    /* General Mobile Styles (Tablets and Smaller Screens) */
-@media only screen and (max-width: 768px) {
-  /* Body */
-  body {
-    margin: 0;
-    padding: 0;
-    font-size: 14px;
-  }
-
-  /* Navbar */
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px;
-  }
-
-  .navbar-logo {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-  }
-
-  .navbar-links {
-    display: none; /* Initially hidden */
-    flex-direction: column;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-  }
-
-  .navbar-links.show {
-    display: flex; /* Show when toggled */
-  }
-
-  .navbar-links li {
-    margin: 5px 0;
-  }
-
-  .navbar-links a {
-    display: block;
-    padding: 10px;
-    text-align: left;
-  }
-
-  .hamburger {
-    display: block;
-    cursor: pointer;
-    font-size: 1.5em;
-    margin-left: auto;
-    border: none;
-    background: none;
-  }
-
-  /* Search Bar */
-  .search-container {
-    width: 100%;
-    margin: 10px 0;
-  }
-
-  .search-container input {
-    width: calc(100% - 20px);
-    padding: 10px;
-  }
-
-  .search-container button {
-    width: 100%;
-    margin-top: 5px;
-  }
-
-  /* Modal */
-  .modal-content {
-    width: 90%;
-    padding: 20px;
-  }
-
-  .modal-content h2 {
-    font-size: 1.5em;
-  }
-
-  .modal-content p {
-    font-size: 1em;
-  }
-
-  /* Category Buttons */
-  .category {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin: 20px 0;
-    margin-top: 75px;
-  }
-
-  .category button {
-    flex: 1 1 45%;
-    max-width: 45%;
-    font-size: 0.9em;
-    padding: 10px;
-  }
-
-  /* Product Cards */
-  .product-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .product-card {
-    width: 90%;
-    margin: 10px 0;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-  }
-
-  .product-card img {
-    width: 100%;
-    height: auto;
-  }
-
-  .product-title {
-    font-size: 1em;
-    text-align: center;
-  }
-
-  .product-price {
-    font-size: 0.9em;
-    text-align: center;
-  }
-
-  .product-card button {
-    width: 90%;
-    margin: 10px auto;
-  }
-
-  /* Slideshow */
-  #slides {
-    width: 100%;
-    height: auto;
-  }
-
-  .frame-content img {
-    width: 100%;
-    height: auto;
-  }
-
-  /* Footer */
-  .footer-container {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .footer-links ul {
-    padding: 0;
-    list-style: none;
-  }
-
-  .footer-links ul li {
-    margin: 5px 0;
-  }
-
-  .footer-social .social-icons p {
-    margin: 5px 0;
-  }
-}
-
-/* Small Screens (Phones) */
-@media only screen and (max-width: 480px) {
-  .navbar-logo {
-    font-size: 1.2em;
-  }
-
-  .category button {
-    flex: 1 1 100%;
-    max-width: 100%;
-  }
-
-  .product-card {
-    font-size: 0.8em;
-  }
-
-  .product-title {
-    font-size: 0.9em;
-  }
-
-  .modal-content h2 {
-    font-size: 1.2em;
-  }
-
-  .modal-content p {
-    font-size: 0.9em;
-  }
-
-  .search-container input {
-    border: 1px solid white;
-    font-size: 0.9em;
-  }
-
-  .footer-logo h2 {
-    font-size: 1em;
-  }
-
-  .footer-links ul {
-    font-size: 0.9em;
-  }
-
-  .footer-social .social-icons p {
-    font-size: 0.9em;
-  }
-}
-
-
-
-
-/* Media Query For Slider  */
-
-
-/* Media Query Addeed  */
-
-@media only screen and (max-width: 500px) {
-
-    #slides{
-        height: 180px;
-        max-width: 300px;
-        
-
-    }
-
-
-    #frame{
-        width: 320px;
-    }
-
-    .frame-content{
-        margin-bottom: 180px;
-    }
-
-    .frame-content > img{
-        background-position: center;
-        background-size: cover;
-        height: 150px;
-    }
-
-    .ctgy{
-        padding-bottom: 35px;
-
-    }
-
-    .category{
-        width: 220px;
-        text-align: center;
-        margin: auto;
-    }
-
-
-
-   .footer-container{
-    text-align: center;
-    
-   }
-
-   .footer-logo{
-    max-height: 80px;
-    padding-left: 40px;
-    padding-bottom: 80px;
-    text-align: start;
-   }
-
-   .footer-logo > h2{
-    font-size: 30px;
-    padding-bottom: 20px;
-   }
-
-    footer {
-        padding: 20px 10px;
-        text-align: start;
-    }
-
-    .footer-container {
-        flex-direction: column;
-    }
-
-    .footer-links{
-        align-items: start;
-        text-align: start;
-    }
-
-    .footer-contact{
-        text-align: start;
-    }
-
-    .footer-logo {
         position: relative;
-        right: 35px;
-        margin-bottom: 30px;
-        text-align: start;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
-    .social-icons{
+    .inner {
+        display: flex;
+        transition: transform 0.6s ease-in-out;
+        width: 400%;
+    }
+
+    .frame {
+        width: 25%;
+        flex-shrink: 0;
         text-align: center;
-
-    }
-
-    .footer-social{
-        text-align: start;
-    }
-
-    .footer-links, .footer-contact, .footer-social {
-        flex: 1 1 100%;
-        margin-bottom: 20px;
-    }
-
-    .footer-social .social-icons {
-        text-align: start;
-        flex-direction: column;
-    }
-
-    .footer-social .social-icons p {
-        margin-bottom: 10px;
-        text-align: start;
-    }
-
-    .footer-links li {
-        margin-bottom: 8px;
-    }
-
-    .footer-links {
-         position: relative;
-        right: 90px;
         margin-bottom: 50px;
     }
 
-    .footer-links > ul{
-        text-align: start;  
+    .frame img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 8px;
     }
 
-    .footer-social{
-        text-align: start;
-         position: relative;
-        right: 100px;
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+        #frame { width: 95%; }
+        .frame img {
+            height: 200px;
+        }
     }
 
-    .footer-contact {
-        position: relative;
-        left: 5px;
+    @media (max-width: 480px) {
+        .frame img {
+            height: 100px;
+            object-fit: contain;
+            object-fit: fill;
+
+        }
     }
-}
 
+        /* Better Product Cards */
+        .product-card button {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
 
+        #view {
+            background: #3498db;
+            color: white;
+
+        }
+        .view-more-button{
+            color: white;
+            text-decoration: none;
+        }
+
+        #cart {
+            background: #27ae60;
+            color: white;
+        }
+
+        #view:hover, #cart:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Improved Footer Alignment */
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: start;
+        }
+
+        .footer-social .social-icons {
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+          
+            .inner {
+                width: 400%;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+        
+            
+            .product-card button {
+                width: 100%;
+                margin: 0.5rem 0;
+            }
+        }
     </style>
 </head>
-
 <body>
+    <!-- Modal -->
+    <div id="welcome-modal" class="modal">
+        <div class="modal-content">
+            <h2>Welcome to Our ECOM!</h2>
+            <br>
+            <p style="color: red;"><b>This Service Is Only Available In Pune Only</b></p>
+            <p>This is a Prototype Not The END Product So there is some bugs and issue but Dont worry It work Fine.</p>
+            <p>it is Simple to use and safe So Don't Warry.</p>
+            <p>Thank You</p>
+            <p>Have a Nice Day.</p>
+            <br>
+            <button id="close-modal">Got It!</button>
+        </div>
+    </div>
 
-
-
-<!-- Modal -->
-<div id="welcome-modal" class="modal">
-  <div class="modal-content">
-    <h2>Welcome to Our ECOM!</h2>
-    <br>
-    <p style="color: red;"> <b>  This Service Is Only Available In Pune Only </b> </p>
-    <p> This is a Prototype Not The END Product So there is some bugs and issue but Dont worry It work Fine. </p>
-    <p> it is Simple to use and safe So Don't Warry. </p>
-    <p> Thank You  </p>
-    <p> Have a Nice Day.  </p>
-    <br>
-    <button id="close-modal">Got It!</button>
-  </div>
-</div>
-
-
-
-
-<script>
+    <script>
   // Wait for the DOM to load
   document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById('welcome-modal');
@@ -1196,113 +744,91 @@ body.modal-open {
   });
 </script>
 
-
-
-<nav class="navbar" id="navbar">
-    <div class="navbar-logo"> Apna Electrician </div>
+ <nav class="navbar" id="navbar">
+    <div class="navbar-left">
+        <div class="navbar-logo">Apna Electrician</div>
+        <div class="search-icon" onclick="toggleSearch()">🔍</div>
+    </div>
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
     <ul class="navbar-links">
         <li><a href="/">Home</a></li>
         <li><a href="https://apnaelectrician.com/">Services</a></li>
         <li><a href="tel:+1234567890">Call Now</a></li>
-    </ul>
-    <div class="search-container">
-      <form id="search-form" onsubmit="handleSearch(event)">
-    <input type="text" id="search-input" placeholder="Search..." />
-    <button type="submit">Search</button>
-</form>
-
-    </div>
-    <div class="profile-section">
         {{#if username}}
-        <div class="profile-dropdown">
+        <li class="profile-dropdown">
             <div class="user-icon">
-                <img src="https://cdn-icons-png.flaticon.com/128/4140/4140037.png" width="30px" alt="User" height="30px" />
+                <img src="https://cdn-icons-png.flaticon.com/128/4140/4140037.png" width="30" height="30" alt="User" />
                 <span class="profile-btn">{{username}}</span>
             </div>
             <div class="dropdown-content">
                 <a href="/profile">Profile Settings</a>
-                {{!-- <a href="/order">Order History</a> --}}
                 <form action="/logout" method="POST">
                     <button type="submit">Logout</button>
                 </form>
             </div>
-        </div>
-        <a href="/cart"><img class="cart" src="https://cdn-icons-png.flaticon.com/128/3523/3523887.png" height="35px" width="35px" /></a>
+        </li>
+        <li>
+            <a href="/cart">
+                <img class="cart" src="https://cdn-icons-png.flaticon.com/128/3523/3523887.png" height="35" width="35" alt="Cart" />
+            </a>
+        </li>
         {{else}}
-        <button onclick="window.location.href='/login'" class="login">Login</button>
-        <button onclick="window.location.href='/signup'" class="signup">Signup</button>
+        <!-- Login and Signup buttons for large devices -->
+        <li class="login-signup-large">
+            <button onclick="window.location.href='/login'" class="login">Login</button>
+            <button onclick="window.location.href='/signup'" class="signup">Signup</button>
+        </li>
         {{/if}}
+    </ul>
+    <div class="search-container">
+        <form id="search-form" onsubmit="handleSearch(event)">
+            <input type="text" id="search-input" placeholder="Search..." />
+            <button type="submit">Search</button>
+        </form>
     </div>
 </nav>
 
-<!-- Hamburger Navbar   --->
-
-
-
-
-<script>
-    function handleSearch(event) {
-        event.preventDefault(); // Prevent page reload
-
-        const input = document.getElementById('search-input').value.toLowerCase();
-        const productContainer = document.getElementById('product-container');
-        const products = [...productContainer.getElementsByClassName('product-card')];
-
-        products.forEach(product => {
-            const title = product.querySelector('.product-title').innerText.toLowerCase();
-            product.style.display = title.includes(input) ? 'block' : 'none';
-        });
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-        const modal = document.getElementById('welcome-modal');
-        const closeModalButton = document.getElementById('close-modal');
-        const body = document.body;
-
-        if (!localStorage.getItem('modalDismissed')) {
-            modal.classList.add('show');
-            body.classList.add('modal-open');
-        }
-
-        closeModalButton.addEventListener('click', () => {
-            modal.classList.remove('show');
-            body.classList.remove('modal-open');
-            localStorage.setItem('modalDismissed', 'true');
-        });
-
-        modal.addEventListener('click', (event) => {
-            if (event.target === modal) {
-                modal.classList.remove('show');
-                body.classList.remove('modal-open');
-                localStorage.setItem('modalDismissed', 'true');
-            }
-        });
-    });
-
-
-
-
-
-
-    document.addEventListener('DOMContentLoaded', () => {
-  const hamburger = document.createElement('button');
-  hamburger.classList.add('hamburger');
-  hamburger.innerHTML = '☰'; // Hamburger icon
-  const navbar = document.getElementById('navbar');
-  const navbarLinks = navbar.querySelector('.navbar-links');
-
-  // Add hamburger to navbar
-  navbar.insertBefore(hamburger, navbar.querySelector('.navbar-logo').nextSibling);
-
-  // Toggle navbar links visibility
-  hamburger.addEventListener('click', () => {
+    <script>
+      // Toggle Hamburger Menu
+function toggleMenu() {
+    const navbarLinks = document.querySelector('.navbar-links');
     navbarLinks.classList.toggle('show');
-  });
+}
+
+// Toggle Search Bar
+function toggleSearch() {
+    const searchContainer = document.querySelector('.search-container');
+    searchContainer.classList.toggle('show');
+    if (searchContainer.classList.contains('show')) {
+        document.getElementById('search-input').focus();
+    }
+}
+
+// Handle Search
+function handleSearch(event) {
+    event.preventDefault();
+    const input = document.getElementById('search-input').value.toLowerCase();
+    const productContainer = document.getElementById('product-container');
+    const products = [...productContainer.getElementsByClassName('product-card')];
+
+    products.forEach(product => {
+        const title = product.querySelector('.product-title').innerText.toLowerCase();
+        product.style.display = title.includes(input) ? 'block' : 'none';
+    });
+}
+
+// Close Search Bar on Click Outside
+document.addEventListener('click', (event) => {
+    const searchContainer = document.querySelector('.search-container');
+    const searchIcon = document.querySelector('.search-icon');
+    if (!searchContainer.contains(event.target) && !searchIcon.contains(event.target)) {
+        searchContainer.classList.remove('show');
+    }
 });
+    </script>
 
-</script>
-
-  <div id="frame">
+    <!-- Slider -->
+    <div id="frame">
         <input type="radio" name="frame" id="frame1" checked />
         <input type="radio" name="frame" id="frame2" />
         <input type="radio" name="frame" id="frame3" />
@@ -1312,22 +838,22 @@ body.modal-open {
                 <div class="inner">
                     <div class="frame frame_1">
                         <div class="frame-content">
-                            <img src="https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/e6dc4b4c88912592.jpg?q=20" />
+                            <img src="https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/e6dc4b4c88912592.jpg?q=20" alt="Slide 1" height="200px"  />
                         </div>
                     </div>
                     <div class="frame frame_2">
                         <div class="frame-content">
-                            <img src="https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/1316eb53d6f52c71.jpg?q=20"/>
+                            <img src="https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/1316eb53d6f52c71.jpg?q=20" alt="Slide 2" />
                         </div>
                     </div>
                     <div class="frame frame_3">
                         <div class="frame-content">
-                            <img src="https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/d09a5eb3fc5c940e.jpeg?q=20    " />
+                            <img src="https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/d09a5eb3fc5c940e.jpeg?q=20 " alt="Slide 3" />
                         </div>
                     </div>
                     <div class="frame frame_4">
                         <div class="frame-content">
-                            <img src="https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/d9290fb51138d286.png?q=20" />
+                            <img src="https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/d9290fb51138d286.png?q=20" alt="Slide 4" />
                         </div>
                     </div>
                 </div>
@@ -1347,45 +873,92 @@ body.modal-open {
         </div>
     </div>
 
-
-       <script>
-        let currentIndex = 1; // Start with the first slide
-        const totalSlides = 4; // Total number of slides
-        const intervalTime = 4000; // 6 seconds
-
-        function autoSlide() {
-            // Increment index
-            currentIndex++;
-
-            // Loop back to the first slide after the last slide
-            if (currentIndex > totalSlides) {
-                currentIndex = 1;
-            }
-
-            // Set the corresponding radio input to checked
-            document.getElementById(`frame${currentIndex}`).checked = true;
+     <script>
+        // Auto-sliding functionality
+        let currentSlide = 0;
+        const slider = document.querySelector('.inner');
+        const totalSlides = 4;
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            slider.style.transform = `translateX(-${currentSlide * 25}%)`;
         }
-
-        // Start auto sliding
-        setInterval(autoSlide, intervalTime);
+        
+        setInterval(nextSlide, 4000);
     </script>
 
-
-    <!-- templates/home.hbs -->
-
-    <h1 class="ctgy">  Category </h1>
+    <!-- Categories -->
+    <h1 class="ctgy">Category</h1>
     <div class="category">
-
-        <button onclick="handledefault()"> Latest Products </button>
-        <button onclick="handlebulb()"> Fan </button>
-        <button onclick="handlecamera()"> Security Cameras </button>
-        <button onclick="handlelight()"> Light's </button>
+        <button onclick="handledefault()">Latest Products</button>
+        <button onclick="handlebulb()">Fan</button>
+        <button onclick="handlecamera()">Security Cameras</button>
+        <button onclick="handlelight()">Light's</button>
     </div>
+
+    <!-- Products -->
+    <main>
+        <div class="product-container" id="product-container">
+            {{#each products}}
+            <div class="product-card">
+                <div class="image-container">
+                    <img src="{{this.imageUrls.[0]}}" alt="{{this.name}}" class="product-image">
+                </div>
+                <h2 class="product-title">{{this.name}}</h2>
+                <p class="product-price">₹ {{this.price}}</p>
+                <button id="view">
+                    <a href="/product/{{this._id}}" class="view-more-button">View More</a>
+                </button>
+                <button id="cart" onclick="addToCart('{{this._id}}', '{{this.name}}', {{this.price}}, `{{this.imageUrls.[0]}}`)">
+                    Add to Cart
+                </button>
+            </div>
+            {{/each}}
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h2>Apna Electrician</h2>
+                <p>&copy; 2025 Apna Electrician Store. All rights reserved.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="/aboutus">About Us</a></li>
+                    <li><a href="/contactus">Contact</a></li>
+                    <li><a href="/privacy-policy">Privacy Policy</a></li>
+                    <li><a href="/t&c">Terms of Service</a></li>
+                    <li><a href="/faq">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p>Email: apnaelectrician.com@gmail.com</p>
+                <p>Phone: +91 7800905998</p>
+                <p>Address: Lohegaon, Pune</p>
+            </div>
+            <div class="footer-social">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <p>Instagram</p>
+                    <p>Google</p>
+                    <p>Youtube</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script>
 
-           function handledefault(event) {
 
+ 
+
+        // Search
+        function handleSearch(event) {
+            event.preventDefault();
             const input = document.getElementById('search-input').value.toLowerCase();
             const productContainer = document.getElementById('product-container');
             const products = [...productContainer.getElementsByClassName('product-card')];
@@ -1395,228 +968,67 @@ body.modal-open {
                 product.style.display = title.includes(input) ? 'block' : 'none';
             });
         }
-           // fan Category
-        function handlebulb(event) {
-            console.log("click")
-    const productContainer = document.getElementById('product-container');
-    const products = [...productContainer.getElementsByClassName('product-card')];
 
-    products.forEach(product => {
-        const title = product.querySelector('.product-title').innerText.toLowerCase();
-        
-        // Check if the title contains the keyword "bulb"
-        product.style.display = title.includes('fan') ? 'block' : 'none';
-    });
-
-
-
-}
-
-        // Camera category
-        function handlecamera(event) {
-           btn = console.log("click")
-    const productContainer = document.getElementById('product-container');
-    const products = [...productContainer.getElementsByClassName('product-card')];
-
-    products.forEach(product => {
-        const title = product.querySelector('.product-title').innerText.toLowerCase();
-        
-        // Check if the title contains the keyword "bulb"
-        product.style.display = title.includes('camera') ? 'block' : 'none';
-    });
-}
-        // light category
-        function handlelight(event) {
-           btn = console.log("click")
-    const productContainer = document.getElementById('product-container');
-    const products = [...productContainer.getElementsByClassName('product-card')];
-
-    products.forEach(product => {
-        const title = product.querySelector('.product-title').innerText.toLowerCase();
-        
-        // Check if the title contains the keyword "bulb"
-        product.style.display = title.includes('Light') ? 'block' : 'none';
-    });
-}
-
-
-
-    </script>
-
-
-
-{{!-- test new code  --}}
-<main>
-    <div class="product-container" id="product-container">
-        {{#each products}}
-        <div class="product-card">
-          <a  id="view" href="/product/{{this._id}}" class="view-more-button"></a>  
-            <div class="image-container">
-                <img src="{{this.imageUrls.[0]}}" alt="{{this.name}}" class="product-image"  >
-          </img>
-
-            </div>
-            <h2 class="product-title">{{this.name}}</h2>
-            <p class="product-price">₹ {{this.price}}</p>
-
-          <button id="view">  <a href="/product/{{this._id}}" class="view-more-button">View More</a>    </button>
-{{!-- <button id="cart" onclick="addToCart('{{this._id}}', '{{this.name}}', {{this.price}}, '{{this.imageUrls.[0]}}')">Add to Cart</button> --}}
-<button id="cart" onclick="addToCart('{{this._id}}', '{{this.name}}', {{this.price}}, `{{this.imageUrls.[0]}}`)"
-
->Add to Cart</button>
-
-
-
-        </div>
-        {{/each}}
-    </div>
-</main>
-
-<script>
-function addToCart(productId, productName, productPrice, productImage) {
-    // Check if user is logged in
-    const isLoggedIn = localStorage.getItem('userLoggedIn');
-
-    if (!isLoggedIn) {
-        // If not logged in, redirect to the login page
-        alert("Please log in to add items to your cart.");
-        window.location.href = '/login'; // Replace '/login' with your actual login page URL
-        return; // Stop function execution
-    }
-
-    // Get the current cart from localStorage (or an empty array if none exists)
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-    // Create the new product object
-    const newProduct = {
-        id: productId,
-        name: productName,
-        price: productPrice,
-        image: productImage,
-        quantity: 1
-    };
-
-    // Check if the product already exists in the cart
-    const existingProduct = cart.find(item => item.id === productId);
-    if (existingProduct) {
-        // If product already in cart, increase quantity
-        existingProduct.quantity += 1;
-    } else {
-        // If product is not in cart, add it
-        cart.push(newProduct);
-    }
-
-    // Save the updated cart to localStorage
-    localStorage.setItem('cart', JSON.stringify(cart));
-
-    // Log success and redirect to cart page
-    console.log(`${productName} added to cart.`);
-    window.location.href = '/cart'; // Or use your cart page URL
-}
-</script>
-
-    <script src="../public/navbar.js"> </script>
-
-
-     <footer>
-    <div class="footer-container">
-        <div class="footer-logo">
-            {{!-- <img src="/path-to-logo/logo.png" alt="E-Commerce Logo" class="logo"> --}}
-            <h2> Apna Electrician </h2>
-            <p>&copy; 2025 Apna Electrician Store. All rights reserved.</p>
-        </div>
-        
-        <div class="footer-links">
-            <h3>Quick Links</h3>
-            <ul>
-                <li><a href="/aboutus">About Us</a></li>
-                <li><a href="/contactus">Contact</a></li>
-                <li><a href="/privacy-policy">Privacy Policy</a></li>
-                <li><a href="/t&c">Terms of Service</a></li>
-                <li><a href="/faq">FAQ</a></li>
-            </ul>
-        </div>
-
-        <div class="footer-contact">
-            <h3>Contact Us</h3>
-            <p>Email: apnaelectrician.com@gmail.com</p>
-            <p>Phone: +91 7800905998</p>
-            <p>Address: 
-Lohegaon, Pune </p>
-        </div>
-
-        <div class="footer-social">
-            <h3>Follow Us</h3>
-            <br>
-            <div class="social-icons">
-                {{!-- <a href="https://facebook.com"><img src="/path-to-icons/facebook-icon.png" alt="Facebook"></a>
-                <a href="https://twitter.com"><img src="/path-to-icons/twitter-icon.png" alt="Twitter"></a>
-                <a href="https://instagram.com"><img src="/path-to-icons/instagram-icon.png" alt="Instagram"></a>
-                <a href="https://linkedin.com"><img src="/path-to-icons/linkedin-icon.png" alt="LinkedIn"></a> --}}
-                <p> Instagram  </p>
-                <p> Google  </p>
-                <p> Youtube  </p>
-            </div>
-        </div>
-    </div>
-</footer>
-    <script>
-
-      function addToCart(product) {
-  fetch('/cart/add', {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-        id: productId,
-        name: productName,
-        price: productPrice,
-        image: productImage,
-        quantity: 1,
-    }),
-});
-
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert('Product added to cart!');
-            // Optionally update cart count or UI here
-        } else {
-            alert('Failed to add product to cart.');
+        // Category Filters
+        function handledefault() {
+            const productContainer = document.getElementById('product-container');
+            const products = [...productContainer.getElementsByClassName('product-card')];
+            products.forEach(product => {
+                product.style.display = 'block';
+            });
         }
-    })
-    .catch(error => {
-        console.error('Error adding to cart:', error);
-    });
-} 
 
+        function handlebulb() {
+            filterProducts('fan');
+        }
 
-   
+        function handlecamera() {
+            filterProducts('camera');
+        }
 
- function handleSearch(event) {
-    event.preventDefault(); // Prevent form from reloading the page
+        function handlelight() {
+            filterProducts('Light');
+        }
 
-    const input = document.getElementById('search-input').value.toLowerCase();
-    const productContainer = document.getElementById('product-container');
-    const products = [...productContainer.getElementsByClassName('product-card')];
+        function filterProducts(keyword) {
+            const productContainer = document.getElementById('product-container');
+            const products = [...productContainer.getElementsByClassName('product-card')];
+            products.forEach(product => {
+                const title = product.querySelector('.product-title').innerText.toLowerCase();
+                product.style.display = title.includes(keyword.toLowerCase()) ? 'block' : 'none';
+            });
+        }
 
-    products.forEach(product => {
-        const title = product.querySelector('.product-title').innerText.toLowerCase();
-        product.style.display = title.includes(input) ? 'block' : 'none';
-    });
-}
+        // Cart
+        function addToCart(productId, productName, productPrice, productImage) {
+            const isLoggedIn = localStorage.getItem('userLoggedIn');
 
+            if (!isLoggedIn) {
+                alert("Please log in to add items to your cart.");
+                window.location.href = '/login';
+                return;
+            }
 
-     
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const newProduct = {
+                id: productId,
+                name: productName,
+                price: productPrice,
+                image: productImage,
+                quantity: 1
+            };
 
+            const existingProduct = cart.find(item => item.id === productId);
+            if (existingProduct) {
+                existingProduct.quantity += 1;
+            } else {
+                cart.push(newProduct);
+            }
 
-     
-
-
-
-
+            localStorage.setItem('cart', JSON.stringify(cart));
+            window.location.href = '/cart';
+        }
     </script>
+   
 </body>
-
 </html>

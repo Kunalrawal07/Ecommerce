@@ -3,267 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{user.name}}'s Profile</title>
-    <link rel="stylesheet" href="/css/profile.css">
+    <title>{{user.name}}'s Profile - Apna Electrician</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <style>
         * {
+            font-family: 'Rubik', sans-serif;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
         }
 
         body {
-            display: flex;
-            flex-direction: column;
-            background-color: #f4f4f9;
+            background-color: #f8f9fa;
+            color: #2c3e50;
         }
 
-              * {
-            font-family: 'Rubik', sans-serif;
-            margin: 0%;
-            padding: 0%;
-        }
-
+        /* Navbar Styles */
         .navbar {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 10px 20px;
-            background-color: #333;
+            padding: 1rem;
+            background-color: #2c3e50;
             color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
 
         .navbar-logo {
-            font-size: 24px;
+            font-size: 1.5rem;
             font-weight: bold;
+            color: #3498db;
+        }
+
+        .hamburger {
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            display: none;
         }
 
         .navbar-links {
             display: flex;
             list-style: none;
-        }
-
-        .navbar-links li {
-            margin: 0 15px;
+            gap: 1.5rem;
+            align-items: center;
         }
 
         .navbar-links a {
             color: white;
             text-decoration: none;
+            transition: color 0.3s;
         }
 
-        .search-container {
+        .navbar-links a:hover {
+            color: #3498db;
+        }
+
+        .profile-dropdown {
+            position: relative;
+        }
+
+        .user-icon {
             display: flex;
             align-items: center;
-        }
-
-        .search-container input[type="text"] {
-            padding: 5px;
-            margin-right: 5px;
-            border: none;
-            border-radius: 3px;
-        }
-
-        .search-container button {
-            padding: 5px 10px;
-            border: none;
-            background-color: #ff5722;
-            color: white;
-            border-radius: 3px;
+            gap: 0.5rem;
             cursor: pointer;
         }
 
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            z-index: 1;
+        }
 
-               {{!-- navbar updated css  --}}
-        /* Navbar Styles *//* Navbar Styles */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #2c3e50;
-    padding: 15px 20px;
-    color: #fff;
-}
+        .profile-dropdown:hover .dropdown-content {
+            display: block;
+        }
 
-.navbar-logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
+        .dropdown-content a,
+        .dropdown-content button {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            border: none;
+            background: none;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
 
-.navbar-links {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
+        .dropdown-content a:hover,
+        .dropdown-content button:hover {
+            background-color: #f1f1f1;
+        }
 
-.navbar-links li {
-    position: relative;
-}
+        /* Login and Signup Buttons */
+        .login,
+        .signup {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            background-color: #3498db;
+            color: white;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
 
-.navbar-links a {
-    color: #fff;
-    text-decoration: none;
-}
+        .login:hover,
+        .signup:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
 
-.navbar-links a:hover {
-    text-decoration: underline;
-}
-
-.search-container {
-    display: flex;
-}
-
-.search-container input[type="text"] {
-    padding: 8px;
-    border: none;
-    border-radius: 5px;
-}
-
-.search-container button {
-    padding: 8px;
-    background-color: #2980b9;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.search-container button:hover {
-    background-color: #3498db;
-}
-
-.login{
-    height: 33px;
-    width: 65px;
-    background-color: rgb(90, 90, 198);
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-.signup{
-    cursor: pointer;
-    height: 33px;
-    width: 65px;
-    background-color: rgb(90, 90, 198);
-    color: white;
-    border: none;
-}
-
-/* Profile Dropdown Styles */
-.profile-section {
-    position: relative; /* Set this to relative for dropdown positioning */
-    margin-left: 20px; /* Space between the search bar and profile */
-    margin-right: 50px;
-}
-
-.profile-dropdown {
-    position: relative;
-}
-
-.profile-btn {
-    background: none;
-    color: #fff;
-    cursor: pointer;
-    font-size: 1rem;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    right: 5px;
-    background-color: #fff;
-    min-width: 160px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 5;
-    color: #333;
-    border-radius: 5px;
-}
-
-.dropdown-content a,
-.dropdown-content button {
-    color: #333;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    border: none;
-    background: none;
-    text-align: left;
-}
-
-.dropdown-content a:hover,
-.dropdown-content button:hover {
-    background-color: #f1f1f1;
-}
-
-/* Show dropdown on hover */
-.profile-dropdown:hover .dropdown-content {
-    display: block;
-}
-
-
-.user-icon{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-
-
-.cart{
-    position: relative;
-    position: absolute;
-    left: -80px;
-    bottom: 5px;
-    cursor: pointer;
-}
-
-
-
-.view-more-button{
-    color: black;
-}
-button > .view-more-button{
-    list-style: none;   
-    text-decoration: none;
-    max-width: 170px;
-
-}
-
-#cart{
- height: 33px;
-    width: 95px;
-    background-color: rgb(90, 90, 198);
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-#view{
- height: 33px;
-    width: 80px;
-    background-color: rgb(90, 90, 198);
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-            {{!-- Navbar Css End  --}}
-
-
-
+        .login:active,
+        .signup:active {
+            transform: translateY(0);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
 
         /* Profile Section */
         .profile-wrapper {
-            margin-top: 70px;
+            margin: 100px auto 20px;
             padding: 20px;
-            background-color: white;
+            background: #fff;
+            border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            width: 100%;
             max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
+            width: 90%;
         }
 
         .profile-header h1 {
@@ -274,231 +165,298 @@ button > .view-more-button{
 
         .profile-details {
             background: #f9fafb;
-            padding: 15px;
-            border-radius: 10px;
+            padding: 20px;
+            border-radius: 8px;
             margin-bottom: 20px;
+        }
+
+        .profile-details h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
         }
 
         .profile-details p {
             font-size: 1rem;
             color: #555;
+            margin-bottom: 10px;
         }
 
-        /* Update Profile Section */
         .profile-update {
-            margin-top: 30px;
             background: #f9fafb;
             padding: 20px;
-            border-radius: 10px;
+            border-radius: 8px;
+        }
+
+        .profile-update h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
         }
 
         .profile-update label {
             font-weight: bold;
+            display: block;
+            margin-top: 10px;
         }
 
         .profile-update input {
             width: 100%;
             padding: 10px;
             margin: 10px 0;
-            border-radius: 5px;
             border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
         }
 
         .profile-update button {
-            background-color: #2ecc71;
-            color: white;
-            padding: 10px;
+            padding: 10px 20px;
             border: none;
             border-radius: 5px;
+            background-color: #3498db;
+            color: white;
+            font-size: 1rem;
             cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
         }
 
         .profile-update button:hover {
-            background-color: #27ae60;
+            background-color: #2980b9;
+            transform: translateY(-2px);
         }
 
+        /* Footer Styles */
         footer {
-            margin-top: 20px;
-            text-align: center;
-            color: #7f8c8d;
+            background-color: #2c3e50;
+            color: white;
+            padding: 3rem 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links h3,
+        .footer-contact h3,
+        .footer-social h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #3498db;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            line-height: 2;
+        }
+
+        .footer-links a:hover {
+            color: #3498db;
+        }
+
+        .footer-contact p {
+            margin: 0.5rem 0;
+            line-height: 1.6;
+        }
+
+        .footer-social .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .navbar ul {
+            .navbar-links {
                 display: none;
                 flex-direction: column;
                 position: absolute;
-                top: 50px;
-                right: 0;
+                top: 100%;
+                left: 0;
+                width: 100%;
                 background-color: #2c3e50;
-                padding: 10px;
-                width: 200px;
+                padding: 1rem;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             }
 
-            .navbar.open ul {
+            .navbar-links.show {
                 display: flex;
             }
 
-            .hamburger-menu {
-                display: flex;
+            .hamburger {
+                display: block;
             }
 
             .profile-wrapper {
-                margin-top: 20px;
-                width: 90%;
-                margin-left: auto;
-                margin-right: auto;
+                margin-top: 80px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .profile-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .profile-details h2,
+            .profile-update h2 {
+                font-size: 1.2rem;
+            }
+
+            .profile-details p,
+            .profile-update input {
+                font-size: 0.9rem;
+            }
+
+            .profile-update button {
+                font-size: 0.9rem;
             }
         }
     </style>
 </head>
 <body>
-   
-<nav class="navbar" id="navbar">
-    <div class="navbar-logo"> Apna Electrician </div>
-    <ul class="navbar-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="https://apnaelectrician.com/">Services</a></li>
-        <li><a href="tel:+1234567890">Call Now</a></li>
-    </ul>
-    <div class="search-container">
-      {{!-- <form id="search-form" onsubmit="handleSearch(event)">
-    <input type="text" id="search-input" placeholder="Search..." />
-    <button type="submit">Search</button>
-</form> --}}
-
-    </div>
-    <div class="profile-section">
-        {{#if username}}
-        <div class="profile-dropdown">
-            <div class="user-icon">
-                <img src="https://cdn-icons-png.flaticon.com/128/4140/4140037.png" width="30px" alt="User" height="30px" />
-                <span class="profile-btn">{{username}}</span>
-            </div>
-            <div class="dropdown-content">
-                <a href="/profile">Profile Settings</a>
-                {{!-- <a href="/order">Order History</a> --}}
-                <form action="/logout" method="POST">
-                    <button type="submit">Logout</button>
-                </form>
-            </div>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-left">
+            <div class="navbar-logo">Apna Electrician</div>
         </div>
-        <a href="/cart"><img class="cart" src="https://cdn-icons-png.flaticon.com/128/3523/3523887.png" height="35px" width="35px" /></a>
-        {{else}}
-        <button onclick="window.location.href='/login'" class="login">Login</button>
-        <button onclick="window.location.href='/signup'" class="signup">Signup</button>
-        {{/if}}
-    </div>
-</nav>
-
-
-
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
+        <ul class="navbar-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="https://apnaelectrician.com/">Services</a></li>
+            <li><a href="tel:+1234567890">Call Now</a></li>
+            {{#if username}}
+            <li class="profile-dropdown">
+                <div class="user-icon">
+                    <img src="https://cdn-icons-png.flaticon.com/128/4140/4140037.png" width="30" height="30" alt="User" />
+                    <span class="profile-btn">{{username}}</span>
+                </div>
+                <div class="dropdown-content">
+                    <a href="/profile">Profile Settings</a>
+                    <form action="/logout" method="POST">
+                        <button type="submit">Logout</button>
+                    </form>
+                </div>
+            </li>
+            <li>
+                <a href="/cart">
+                    <img class="cart" src="https://cdn-icons-png.flaticon.com/128/3523/3523887.png" height="35" width="35" alt="Cart" />
+                </a>
+            </li>
+            {{else}}
+            <li><button onclick="window.location.href='/login'" class="login">Login</button></li>
+            <li><button onclick="window.location.href='/signup'" class="signup">Signup</button></li>
+            {{/if}}
+        </ul>
+    </nav>
 
     <!-- Profile Section -->
     <div class="profile-wrapper">
         <div class="profile-header">
-            <h1>Welcome To Apna Electrician <b style="color: gold;"> {{username}}</b>  </h1>
+            <h1>Welcome To Apna Electrician <b style="color: gold;">{{username}}</b></h1>
         </div>
 
-      <div class="profile-details">
-    <h2>Profile Details</h2>
-    <br>
-   <p><strong>Username:</strong> <b> {{username}}</b> </p>
-<p><strong>Email:</strong> {{useremail}}</p>
-<p><strong>Phone:</strong> {{userphone}}</p>    
- <div class="profile-details">
-
-  
-</div>
-
-
-
-
-{{!-- <p><strong>Password:</strong> {{user.password}}</p> --}}
-
-</div>
-
+        <div class="profile-details">
+            <h2>Profile Details</h2>
+            <p><strong>Username:</strong> <b>{{username}}</b></p>
+            <p><strong>Email:</strong> {{useremail}}</p>
+            <p><strong>Phone:</strong> {{userphone}}</p>
+        </div>
 
         <div class="profile-update">
             <h2>Profile Settings</h2>
-            <br>
-           <form action="/profile" method="POST">
-               <input type="hidden" name="productId" value="{{username}}">
-               <input type="hidden" name="productId" value="{{email}}">
-               <input type="hidden" name="productId" value="{{user.phone}}">
+            <form action="/profile" method="POST">
+                <input type="hidden" name="productId" value="{{username}}">
+                <input type="hidden" name="productId" value="{{email}}">
+                <input type="hidden" name="productId" value="{{user.phone}}">
 
-    <label for="name">Username</label>
-    <input type="text" placeholder="enter Your New User Name" name="name" value="{{user.name}}" required>
+                <label for="name">Username</label>
+                <input type="text" placeholder="Enter Your New Username" name="name" value="{{user.name}}" required>
 
-    <label for="email">Email</label>
-    <input type="email" name="email" placeholder="Enter Your New E-Mail Address" name="email" value="{{user.email}}" required>
+                <label for="email">Email</label>
+                <input type="email" placeholder="Enter Your New Email Address" name="email" value="{{user.email}}" required>
 
-    <label for="password">Password</label>
-    <input type="password" name="password" name="password" placeholder="Enter new password (optional)">
+                <label for="password">Password</label>
+                <input type="password" placeholder="Enter New Password (Optional)" name="password">
 
-    <button type="submit" class="btn-update">Update Profile</button>
-</form>
-
-
-
-        <!-- Modal HTML (hidden by default) -->
-<div id="modal" style="display: none;">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <h2>Thank you for updating your profile!</h2>
-    <p>Your password change will be processed within 24 hours.</p>
-  </div>
-</div>
-
-
-<script>
-     // Function to show the modal
-  function showModal() {
-    document.getElementById("modal").style.display = "block";
-  }
-
-  // Function to close the modal
-  function closeModal() {
-    document.getElementById("modal").style.display = "none";
-  }
-
-  // Handle the form submission
-  document.querySelector("form").onsubmit = async (event) => {
-    event.preventDefault(); // Prevent default form submission
-
-    const response = await fetch("/profile", {
-      method: "POST",
-      body: new FormData(event.target),
-    });
-
-    const result = await response.json();
-    if (result.success) {
-      showModal(); // Show the confirmation modal
-    } else {
-      alert(result.message);
-    }
-  };
-</script>
-
+                <button type="submit" class="btn-update">Update Profile</button>
+            </form>
         </div>
-
-        <footer>
-            <p>&copy; 2025 Your Company</p>
-        </footer>
     </div>
 
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h2>Apna Electrician</h2>
+                <p>&copy; 2025 Apna Electrician Store. All rights reserved.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="/aboutus">About Us</a></li>
+                    <li><a href="/contactus">Contact</a></li>
+                    <li><a href="/privacy-policy">Privacy Policy</a></li>
+                    <li><a href="/t&c">Terms of Service</a></li>
+                    <li><a href="/faq">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p>Email: apnaelectrician.com@gmail.com</p>
+                <p>Phone: +91 7800905998</p>
+                <p>Address: Lohegaon, Pune</p>
+            </div>
+            <div class="footer-social">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <p>Instagram</p>
+                    <p>Google</p>
+                    <p>Youtube</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <script>
-        // Toggle sidebar menu for small screens
+        // Toggle Hamburger Menu
         function toggleMenu() {
-            document.querySelector('.navbar').classList.toggle('open');
+            const navbarLinks = document.querySelector('.navbar-links');
+            navbarLinks.classList.toggle('show');
         }
 
-        // Logout functionality
-        document.getElementById('logout-button').onclick = async () => {
-            const response = await fetch('/auth/logout', { method: 'POST' });
-            alert((await response.json()).message);
-            window.location.href = '/'; // Redirect to homepage after logout
+        // Handle Profile Update
+        document.querySelector("form").onsubmit = async (event) => {
+            event.preventDefault(); // Prevent default form submission
+
+            const response = await fetch("/profile", {
+                method: "POST",
+                body: new FormData(event.target),
+            });
+
+            const result = await response.json();
+            if (result.success) {
+                alert("Profile updated successfully!");
+            } else {
+                alert(result.message);
+            }
         };
     </script>
 </body>

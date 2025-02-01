@@ -3,210 +3,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{product.name}} - E-Commerce</title>
-    <link rel="stylesheet" href="/styles.css"> <!-- Link to your CSS file -->
+    <title>{{product.name}} - Apna Electrician</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <style>
-  {{!-- navbar updated css  --}}
-        /* Navbar Styles *//* Navbar Styles */
-          * {
-           margin: 0;
-                    padding: 0;
-                    box-sizing: border-box;
+        * {
+            font-family: 'Rubik', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-.navbar {
-    position: relative;
-    bottom: 20px;
-    right: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #2c3e50;
-    padding: 15px 20px;
-    color: #fff;
-    margin-bottom: 50px;
-    width: 1500px;
-
-}
-
-.navbar-logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.navbar-links {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.navbar-links li {
-    position: relative;
-}
-
-.navbar-links a {
-    color: #fff;
-    text-decoration: none;
-}
-
-.navbar-links a:hover {
-    text-decoration: underline;
-}
-
-.search-container {
-    display: flex;
-    align-items: center;
-
-}
-
-.search-container input[type="text"] {
-    padding: 8px;
-    border: none;
-    border-radius: 5px;
-    border-radius: 3px;
-
-}
-
-.search-container button {
-        padding: 8px;
-    background-color: #2980b9;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 80px;
-}
-
-.search-container button:hover {
-    background-color: #3498db;
-}
-
-.login{
-    height: 33px;
-    width: 65px;
-    background-color: rgb(90, 90, 198);
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-.signup{
-    cursor: pointer;
-    height: 33px;
-    width: 65px;
-    background-color: rgb(90, 90, 198);
-    color: white;
-    border: none;
-}
-
-/* Profile Dropdown Styles */
-.profile-section {
-    display: flex;
-    position: relative; /* Set this to relative for dropdown positioning */
-    margin-left: 20px; /* Space between the search bar and profile */
-    margin-right: 50px;
-    width: 150px;
-}
-
-.profile-dropdown {
-    position: relative;
-        left: 110px;
-
-}
-
-.profile-btn {
-   margin-top: 5px;
-    background: none;
-    color: #fff;
-    cursor: pointer;
-    font-size: 1rem;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    right: 5px;
-    background-color: #fff;
-    min-width: 160px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    color: #333;
-    border-radius: 5px;
-}
-
-.dropdown-content a,
-.dropdown-content button {
-    color: #333;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    border: none;
-    background: none;
-    text-align: left;
-}
-
-.dropdown-content a:hover,
-.dropdown-content button:hover {
-    background-color: #f1f1f1;
-}
-
-/* Show dropdown on hover */
-.profile-dropdown:hover .dropdown-content {
-    display: block;
-}
-
-
-.user-icon{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.cart{
-    margin-top: 5px;
-    margin-right: 50px;
-
-}
-
-        {{!-- Navbar css end  --}}
-
-
-
-
 
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f8f8f8;
+            background-color: #f8f9fa;
+            color: #2c3e50;
         }
 
+        /* Navbar Styles */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+            background-color: #2c3e50;
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .navbar-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #3498db;
+        }
+
+        .hamburger {
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            display: none;
+        }
+
+        .navbar-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .navbar-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .navbar-links a:hover {
+            color: #3498db;
+        }
+
+        .profile-dropdown {
+            position: relative;
+        }
+
+        .user-icon {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            z-index: 1;
+        }
+
+        .profile-dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a,
+        .dropdown-content button {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            border: none;
+            background: none;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .dropdown-content a:hover,
+        .dropdown-content button:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Login and Signup Buttons */
+        .login,
+        .signup {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            background-color: #3498db;
+            color: white;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .login:hover,
+        .signup:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .login:active,
+        .signup:active {
+            transform: translateY(0);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Product Details Section */
         .product-details {
             display: flex;
             max-width: 1200px;
-            margin: auto;
+            margin: 100px auto 20px;
             background: #fff;
             padding: 20px;
-            border-radius: 5px;
+            border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         .image-container {
             flex: 1;
             margin-right: 20px;
-            position: relative;
         }
 
         .thumbnail-container {
             display: flex;
-            margin-bottom: 20px;
+            gap: 10px;
+            margin-top: 10px;
             overflow-x: auto;
         }
-            
 
         .thumbnail {
             width: 80px;
             height: 80px;
-            margin-right: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
             cursor: pointer;
@@ -214,13 +179,12 @@
         }
 
         .thumbnail:hover {
-            transform: scale(1.2);
+            transform: scale(1.1);
         }
 
         .large-image {
             width: 100%;
-            border-radius: 5px;
-            margin-bottom: 20px;
+            border-radius: 8px;
         }
 
         .details {
@@ -229,13 +193,13 @@
 
         .product-title {
             font-size: 24px;
-            margin: 0 0 10px;
+            margin-bottom: 10px;
         }
 
         .product-price {
             font-size: 20px;
-            color: #b12704;
-            margin: 0 0 20px;
+            color: #27ae60;
+            margin-bottom: 20px;
         }
 
         .button {
@@ -244,7 +208,23 @@
             border-radius: 5px;
             cursor: pointer;
             margin-right: 10px;
+            font-size: 1rem;
+            transition: background-color 0.3s, transform 0.2s;
         }
+          #view-more-btn {
+            padding: 10px 20px;
+            background-color: green;
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+            font-size: 1rem;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+   
 
         .add-to-cart {
             background-color: #f0c14b;
@@ -253,506 +233,341 @@
 
         .buy-now {
             background-color: green;
-            color: #fff;
+            color: white;
         }
 
-       
+        .button:hover {
+            transform: translateY(-2px);
+        }
 
+        .product-description {
+            margin-top: 20px;
+        }
 
-        {{!-- More products  --}}
+        .product-description ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .product-description li {
+            margin-bottom: 10px;
+        }
+
+        /* More Products Section */
+        .more-products {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .more-products-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
 
         .more-products-container {
-            cursor: pointer;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: center;
-    margin-top: 20px;
-}
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
 
-.more-products-title{
-    margin-top: 80px;
-    margin-left: 30px;
+        .more-product-card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
 
-}
-  .product-title {
+        .more-product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .more-product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .more-product-card h3 {
             font-size: 18px;
-            margin: 10px 0 0 20px;
-            white-space: nowrap; /* Prevent wrapping */
-            overflow: hidden; /* Hide overflow text */
-            text-overflow: ellipsis; /* Show ellipsis for overflow text */
-            max-width: 200px; /* Limit title width */
+            margin: 10px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
-.more-product-card {
-    height: 320px;
-    width: 250px;
-    padding: 15px;
-    border-radius: 5px;
-    text-align: center;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
-}
+        .more-product-card p {
+            font-size: 16px;
+            color: #27ae60;
+            margin: 10px;
+        }
 
-
-
-.more-product-card:hover {
-    transform: scale(1.05);
-}
-
-.more-product-image {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 5px;
-}
-
-.product-title {
-    font-size: 16px;
-    margin: 10px 0;
-}
-
-#cart{
- height: 33px;
-    max-width: 150px;
-    background-color: rgb(90, 90, 198);
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-#view{
- height: 33px;
-    max-width: 150px;
-    background-color: rgb(90, 90, 198);
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-.add-to-cart, .view-more-btn {
-    display: inline-block;
-    margin: 5px 0;
-    padding: 8px 12px;
-    font-size: 14px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.add-to-cart {
-    background-color: #f0c14b;
-    color: #111;
-    margin-right: 5px;
-}
-
-.view-more-btn {
-    background-color: #0366d6;
-    color: #fff;
-    text-decoration: none;
-}
-
-        footer {
-            max-width: 2050px;
-            text-align: center;
-            padding: 10px 0;
-            background-color: #333;
+        .more-product-card button {
+            width: calc(100% - 20px);
+            margin: 10px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #3498db;
             color: white;
-            margin-top: 40px;
+            cursor: pointer;
+            transition: background-color 0.3s;
         }
 
+        .more-product-card button:hover {
+            background-color: #2980b9;
+        }
+
+        /* Footer Styles */
         footer {
-    background-color: #333;
-    color: #fff;
-    text-align: left;
-}
+            background-color: #2c3e50;
+            color: white;
+            padding: 3rem 1rem;
+            margin-top: 4rem;
+        }
 
-.footer-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    max-width:  1800px;
-    margin: auto;
-}
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-.footer-logo {
-    flex: 1 1 250px;
-    margin-left: 20px;
-    margin-top: 10px;
-}
+        .footer-logo {
+            margin-bottom: 1rem;
+        }
 
-.footer-logo img {
-    width: 150px; /* Adjust logo size */
-    margin-bottom: 10px;
-}
+        .footer-logo h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
 
-.footer-links,
-.footer-contact,
-.footer-social {
-    flex: 1 1 200px;
-    margin-bottom: 20px;
-    gap: 10px;
-}
+        .footer-links h3,
+        .footer-contact h3,
+        .footer-social h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #3498db;
+        }
 
-.footer-links h3,
-.footer-contact h3,
-.footer-social h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
-    border-bottom: 2px solid #fff;
-    padding-bottom: 15px;
+        .footer-links ul {
+            list-style: none;
+        }
 
-}
-.social-icons{
-    position: relative;
-}
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            line-height: 2;
+        }
 
+        .footer-links a:hover {
+            color: #3498db;
+        }
 
-.footer-links ul {
-    list-style-type: none;
-    padding: 0;
-    margin-top: 5px;
-}
+        .footer-contact p {
+            margin: 0.5rem 0;
+            line-height: 1.6;
+        }
 
-.footer-links li {
-    margin-bottom: 10px;
-}
+        .footer-social .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
 
-.footer-links a {
-    color: #fff;
-    text-decoration: none;
-}
-
-.footer-links a:hover {
-    text-decoration: underline;
-}
-
-.footer-contact p {
-    margin: 5px 0;
-}
-
-.footer-social .social-icons {
-    display: flex;
-    gap: 10px;
-}
-
-.footer-social .social-icons img {
-    width: 30px; /* Adjust size of icons */
-}
-
-@media (max-width: 768px) {
-    .footer-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .footer-logo,
-    .footer-links,
-    .footer-contact,
-    .footer-social {
-        text-align: center;
-    }
-}
-
-
-
-
-.product-description {
-    font-family: "Amazon Ember", Arial, sans-serif;
-        text-align: -webkit-match-parent;
-}
-
-
-    /* Media query for responsive 
-     */
-     /* For tablets and larger smartphones */
-@media (max-width: 768px) {
-    .navbar-links {
-        display: none;
-    }
-
-    .hamburger {
-        display: flex;
-    }
-
-    .mobile-menu.show {
-        display: flex;
-    }
-
-    .product-details {
-        flex-direction: column;
-    }
-
-    .image-container {
-        width: 100%;
-    }
-
-    .details {
-        width: 100%;
-    }
-
-    .footer-container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .more-products-container {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    }
-}
-
-/* For smaller smartphones */
-@media (max-width: 480px) {
-    .navbar {
-        padding: 10px;
-    }
-
-    .product-title {
-        font-size: 20px;
-    }
-
-    .product-price {
-        font-size: 18px;
-    }
-
-    .button {
-        padding: 8px 15px;
-        font-size: 14px;
-    }
-
-    .footer-section {
-        padding: 10px 0;
-    }
-
-    .thumbnail {
-        width: 60px;
-        height: 60px;
-    }
-}
-
-
-/* New media query added  */
-
-@media only screen and (max-width: 500px) {
-
-    #slides{
-        height: 180px;
-        max-width: 300px;
         
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #2c3e50;
+                padding: 1rem;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
 
-    }
+            .navbar-links.show {
+                display: flex;
+            }
 
+            .hamburger {
+                display: block;
+            }
 
-    #frame{
-        width: 320px;
-    }
+            .product-details {
+                flex-direction: column;
+                margin-top: 80px;
+            }
 
-    .frame-content{
-        margin-bottom: 180px;
-    }
+            .image-container {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
 
-    .frame-content > img{
-        background-position: center;
-        background-size: cover;
-        height: 150px;
-    }
+            .more-products-container {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
 
-    .ctgy{
-        padding-bottom: 35px;
+        @media (max-width: 480px) {
+            .product-title {
+                font-size: 20px;
+            }
 
-    }
+            .product-price {
+                font-size: 18px;
+            }
 
-    .category{
-        width: 220px;
-        text-align: center;
-        margin: auto;
-    }
+            .button {
+                padding: 8px 15px;
+                font-size: 14px;
+            }
 
-    footer{
-
-    max-width: 1800px;
-    }
-
-
-   .footer-container{
-    text-align: center;
-    
-   }
-
-   .footer-logo{
-    max-height: 80px;
-    margin-left: 50px;
-    text-align: start;
-   }
-
-   .footer-logo > h2{
-    font-size: 30px;
-    padding-bottom: 20px;
-   }
-
-    footer {
-        text-align: start;
-    }
-
-    .footer-container {
-        flex-direction: column;
-    }
-
-    .footer-links{
-        align-items: start;
-        text-align: start;
-        margin-left: 50px;
-        margin-top: 50px;
-    }
-
-    .footer-contact{
-        text-align: start;
-        margin-left: 10px;
-        text-wrap: wrap;
-        text-rendering: auto;
-    }
-
-    .footer-logo {
-        position: relative;
-        right: 35px;
-        margin-bottom: 30px;
-        text-align: start;
-    }
-
-    .social-icons{
-        text-align: center;
-
-    }
-
-    .footer-social{
-        margin-left: 40px;
-        text-align: start;
-    }
-
-    .footer-links, .footer-contact, .footer-social {
-        flex: 1 1 100%;
-        margin-bottom: 20px;
-    }
-
-    .footer-social .social-icons {
-        text-align: start;
-        flex-direction: column;
-    }
-
-    .footer-social .social-icons p {
-        margin-bottom: 10px;
-        text-align: start;
-    }
-
-    .footer-links li {
-        margin-bottom: 8px;
-    }
-
-    .footer-links {
-         position: relative;
-        right: 90px;
-        margin-bottom: 50px;
-    }
-
-    .footer-links > ul{
-        text-align: start;  
-    }
-
-    .footer-social{
-        text-align: start;
-         position: relative;
-        right: 100px;
-    }
-
-    .footer-contact {
-        position: relative;
-        left: 5px;
-    }
-}
-
-
-
-
+            .thumbnail {
+                width: 60px;
+                height: 60px;
+            }
+        }
     </style>
-
 </head>
 <body>
-    
-<nav class="navbar" id="navbar">
-    <div class="navbar-logo"> Apna Electrician </div>
-    <ul class="navbar-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/services">Services</a></li>
-        <li><a href="tel:+1234567890">Call Now</a></li>
-    </ul>
-    <div class="search-container">
-        {{!-- <form id="search-form" onsubmit="return handleSearch(event)">
-            <input type="text" id="search-input" placeholder="Search..." />
-            <button type="submit">Search</button>
-        </form> --}}
-    </div>
-    <div class="profile-section">
-        {{#if username}}
-        <div class="profile-dropdown">
-            <div class="user-icon">
-                <img src="https://cdn-icons-png.flaticon.com/128/4140/4140037.png" width="30px" alt="User" height="30px" />
-                <span class="profile-btn">{{username}}</span>
-            </div>
-            <div class="dropdown-content">
-                <a href="/profile">Profile Settings</a>
-                {{!-- <a href="/orders">Order History</a> --}}
-                <form action="/logout" method="POST">
-                    <button type="submit">Logout</button>
-                </form>
-            </div>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-left">
+            <div class="navbar-logo">Apna Electrician</div>
         </div>
-        <a href="/cart"><img class="cart" src="https://cdn-icons-png.flaticon.com/128/3523/3523887.png" height="35px" width="35px" /></a>
-        {{else}}
-        <button onclick="window.location.href='/login'" class="login">Login</button>
-        <button onclick="window.location.href='/signup'" class="signup">Signup</button>
-        {{/if}}
-    </div>
-</nav>
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
+        <ul class="navbar-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="https://apnaelectrician.com/">Services</a></li>
+            <li><a href="tel:+1234567890">Call Now</a></li>
+            {{#if username}}
+            <li class="profile-dropdown">
+                <div class="user-icon">
+                    <img src="https://cdn-icons-png.flaticon.com/128/4140/4140037.png" width="30" height="30" alt="User" />
+                    <span class="profile-btn">{{username}}</span>
+                </div>
+                <div class="dropdown-content">
+                    <a href="/profile">Profile Settings</a>
+                    <form action="/logout" method="POST">
+                        <button type="submit">Logout</button>
+                    </form>
+                </div>
+            </li>
+            <li>
+                <a href="/cart">
+                    <img class="cart" src="https://cdn-icons-png.flaticon.com/128/3523/3523887.png" height="35" width="35" alt="Cart" />
+                </a>
+            </li>
+            {{else}}
+            <li><button onclick="window.location.href='/login'" class="login">Login</button></li>
+            <li><button onclick="window.location.href='/signup'" class="signup">Signup</button></li>
+            {{/if}}
+        </ul>
+    </nav>
 
-
-
-    <header>
-        {{!-- <h1>{{product.name}}</h1> --}}
-    </header>
-
+    <!-- Product Details -->
     <main>
         <div class="product-details">
             <div class="image-container">
-                <!-- Large Image -->
                 <img id="largeImage" src="{{product.imageUrls.[0]}}" alt="{{product.name}}" class="large-image">
-                
-                <!-- Thumbnails -->
                 <div class="thumbnail-container">
                     {{#each product.imageUrls}}
                     <img src="{{this}}" alt="{{../name}}" class="thumbnail" onclick="showImage(this)">
                     {{/each}}
                 </div>
             </div>
-            
-
             <div class="details">
-                <h2  id="pname">{{product.name}}</h2>
+                <h2 class="product-title">{{product.name}}</h2>
                 <h3 class="product-price">₹ {{product.price}}</h3>
                 <button class="button add-to-cart">Add to Cart</button>
-{{!-- <button class="button buy-now"   onclick="window.location.href='/buy/{{product._id}}'">Buy Now</button> --}}
-<button class="button buy-now"   onclick="handleBuyNow()">Buy Now</button>
-                <h2>Description</h2>
+                <button class="button buy-now" onclick="handleBuyNow()">Buy Now</button>
                 <div class="product-description">
                     <ul>
                         {{#each (splitDescription product.description)}}
                             <li>{{this}}</li>
                         {{/each}}
-                    </ul>                
+                    </ul>
                 </div>
             </div>
         </div>
 
-    <script src="../public/navbar.js"> </script>
- <script>
+        <!-- More Products Section -->
+        <div class="more-products">
+            <h2 class="more-products-title">More Suggested Products</h2>
+            <div class="more-products-container">
+                {{#each products}}
+                <div class="more-product-card">
+                    <img src="{{this.imageUrls.[0]}}" alt="{{this.name}}" class="more-product-image">
+                    <h3>{{this.name}}</h3>
+                    <p>₹ {{this.price}}</p>
+                    <button onclick="addToCart('{{this._id}}', '{{this.name}}', {{this.price}}, '{{this.imageUrls.[0]}}')">Add to Cart</button>
+                  <button id="view-more-btn">  <a href="/product/{{this._id}}" id="view-more-btn" >View More</a> </button>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h2>Apna Electrician</h2>
+                <p>&copy; 2025 Apna Electrician Store. All rights reserved.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="/aboutus">About Us</a></li>
+                    <li><a href="/contactus">Contact</a></li>
+                    <li><a href="/privacy-policy">Privacy Policy</a></li>
+                    <li><a href="/t&c">Terms of Service</a></li>
+                    <li><a href="/faq">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p>Email: apnaelectrician.com@gmail.com</p>
+                <p>Phone: +91 7800905998</p>
+                <p>Address: Lohegaon, Pune</p>
+            </div>
+            <div class="footer-social">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <p>Instagram</p>
+                    <p>Google</p>
+                    <p>Youtube</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle Hamburger Menu
+        function toggleMenu() {
+            const navbarLinks = document.querySelector('.navbar-links');
+            navbarLinks.classList.toggle('show');
+        }
+
+        // Show Large Image
+        function showImage(thumbnail) {
+            const largeImage = document.getElementById('largeImage');
+            largeImage.src = thumbnail.src;
+        }
+
+      
      window.username = "{{username}}"; // Username from the session (null if not logged in)
     window.productId = "{{product._id}}"; 
 
@@ -765,113 +580,35 @@
             window.location.href = '/login';
         }
     }
-</script>
 
-
-
-     <!-- More Products Section -->
-<div class="more-products" id="product-container">
-    <h2 class="more-products-title"> More Suggested Products</h2>
-    <div class="more-products-container">
-        {{#each products}}
-        <div class="more-product-card">
-            <img src="{{this.imageUrls.[0]}}" alt="{{this.name}}" class="more-product-image">
-            <h3 class="product-title">{{this.name}}</h3>
-            <p class="product-price">₹ {{this.price}}</p>
-            <div>
-                {{!-- <button id="view" class="add-to-cart" onclick="addToCart('{{this._id}}')">Add to Cart</button> --}}
-                <a href="/product/{{this._id}}" class="view-more-btn">View More</a>
-                <button id="cart" onclick="addToCart('{{this._id}}', '{{this.name}}', {{this.price}}, '{{this.imageUrls.[0]}}')">Add to Cart</button>
-
-            </div>
-        </div>
-        {{/each}}
-    </div>
-</div>
-
-<script>
-    function addToCart(productId) {
-        fetch('/add-to-cart', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ productId }),
-        })
-        .then((response) => response.json())
-        .then((data) => {
-            if (data.success) {
-                alert('Product added to cart!');
-            } else {
-                alert('Failed to add product to cart.');
+        // Add to Cart
+        function addToCart(productId, productName, productPrice, productImage) {
+            const isLoggedIn = localStorage.getItem('userLoggedIn');
+            if (!isLoggedIn) {
+                alert("Please log in to add items to your cart.");
+                window.location.href = '/login';
+                return;
             }
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
-    }
-</script>
 
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const newProduct = {
+                id: productId,
+                name: productName,
+                price: productPrice,
+                image: productImage,
+                quantity: 1
+            };
 
-    </main>
+            const existingProduct = cart.find(item => item.id === productId);
+            if (existingProduct) {
+                existingProduct.quantity += 1;
+            } else {
+                cart.push(newProduct);
+            }
 
-  <footer>
-    <div class="footer-container">
-        <div class="footer-logo">
-            {{!-- <img src="/path-to-logo/logo.png" alt="E-Commerce Logo" class="logo"> --}}
-            <h2> Apna Ecommerce </h2>
-            <p>&copy; 2025 E-Commerce Store. All rights reserved.</p>
-        </div>
-        
-        <div class="footer-links">
-            <h3>Quick Links</h3>
-            <ul>
-                <li><a href="/aboutus">About Us</a></li>
-                <li><a href="/contactus">Contact</a></li>
-                <li><a href="/privacy-policy">Privacy Policy</a></li>
-                <li><a href="/t&c">Terms of Service</a></li>
-                <li><a href="/faq">FAQ</a></li>
-            </ul>
-        </div>
-
-        <div class="footer-contact">
-            <h3>Contact Us</h3>
-            <p>Email: apnaelectrician.com@gmail.com</p>
-            <p>Phone: +91 7800905998</p>
-            <p>Address: 
-Lohegaon, Pune</p>
-        </div>
-
-        <div class="footer-social">
-            <h3>Follow Us</h3>
-            <div class="social-icons">
-                {{!-- <a href="https://facebook.com"><img src="/path-to-icons/facebook-icon.png" alt="Facebook"></a>
-                <a href="https://twitter.com"><img src="/path-to-icons/twitter-icon.png" alt="Twitter"></a>
-                <a href="https://instagram.com"><img src="/path-to-icons/instagram-icon.png" alt="Instagram"></a>
-                <a href="https://linkedin.com"><img src="/path-to-icons/linkedin-icon.png" alt="LinkedIn"></a> --}}
-                <p> Instagram  </p>
-                <p> Google  </p>
-                <p> Youtube  </p>
-            </div>
-        </div>
-    </div>
-</footer>
-
-
-    <script>
-
-    
-
-        // Function to show the large image when a thumbnail is clicked
-        function showImage(thumbnail) {
-            const largeImage = document.getElementById('largeImage');
-            largeImage.src = thumbnail.src; // Set the large image source to the clicked thumbnail
+            localStorage.setItem('cart', JSON.stringify(cart));
+            window.location.href = '/cart';
         }
-
-
-
     </script>
- 
-
 </body>
 </html>

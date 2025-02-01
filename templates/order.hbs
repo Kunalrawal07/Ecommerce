@@ -3,380 +3,375 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order History</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Order History - Apna Electrician</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
     <style>
-        /* General Styles */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
-}
+        * {
+            font-family: 'Rubik', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-h1 {
-    text-align: center;
-    margin: 20px 0;
-}
+        body {
+            background-color: #f8f9fa;
+            color: #2c3e50;
+        }
 
-/* Navbar Styles */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #2c3e50;
-    padding: 15px 20px;
-    color: #fff;
-}
+        /* Navbar Styles */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+            background-color: #2c3e50;
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
 
-.navbar-logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
+        .navbar-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #3498db;
+        }
 
-.navbar-links {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
+        .navbar-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            align-items: center;
+        }
 
-.navbar-links a {
-    color: #fff;
-    text-decoration: none;
-}
+        .navbar-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
 
-.navbar-links a:hover {
-    text-decoration: underline;
-}
+        .navbar-links a:hover {
+            color: #3498db;
+        }
 
-.search-container {
-    display: flex;
-}
+        .search-container {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
 
-.search-container input[type="text"] {
-    padding: 8px;
-    border: none;
-    border-radius: 5px;
-}
+        .search-container input[type="text"] {
+            padding: 0.5rem;
+            border: none;
+            border-radius: 4px;
+            width: 200px;
+            font-size: 1rem;
+        }
 
-.search-container button {
-    padding: 8px;
-    background-color: #2980b9;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
+        .search-container button {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            background-color: #3498db;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
 
-.search-container button:hover {
-    background-color: #3498db;
-}
+        .search-container button:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
 
-/* Profile Dropdown Styles */
-.profile-section {
-    position: relative; /* Set this to relative for dropdown positioning */
-    margin-left: 20px; /* Space between the search bar and profile */
-}
+        .profile-dropdown {
+            position: relative;
+        }
 
-.profile-dropdown {
-    position: relative;
-}
+        .user-icon {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
 
-.profile-btn {
-    background: none;
-    color: #fff;
-    cursor: pointer;
-    font-size: 1rem;
-}
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            z-index: 1;
+        }
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #fff;
-    min-width: 160px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    color: #333;
-    border-radius: 5px;
-}
+        .profile-dropdown:hover .dropdown-content {
+            display: block;
+        }
 
-.dropdown-content a,
-.dropdown-content button {
-    color: #333;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    border: none;
-    background: none;
-    text-align: left;
-}
+        .dropdown-content a,
+        .dropdown-content button {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            border: none;
+            background: none;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
 
-.dropdown-content a:hover,
-.dropdown-content button:hover {
-    background-color: #f1f1f1;
-}
+        .dropdown-content a:hover,
+        .dropdown-content button:hover {
+            background-color: #f1f1f1;
+        }
 
-/* Show dropdown on hover */
-.profile-dropdown:hover .dropdown-content {
-    display: block;
-}
+        /* Order History Section */
+        .order-history {
+            max-width: 1200px;
+            margin: 100px auto 20px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
 
-/* Order History Styles */
-.order-history {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
+        .order-history h1 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+        }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
 
-th, td {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-}
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
 
-th {
-    background-color: #2980b9;
-    color: #fff;
-}
+        th {
+            background-color: #3498db;
+            color: white;
+            font-weight: 500;
+        }
 
-tr:hover {
-    background-color: #f2f2f2;
-}
+        tr:hover {
+            background-color: #f8f9fa;
+        }
 
-/* Footer Styles */
-footer {
-    text-align: center;
-    padding: 10px 0;
-    background-color: #2c3e50;
-    color: #fff;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-}
+        /* Footer Styles */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 3rem 1rem;
+            margin-top: 4rem;
+        }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-    .navbar-links {
-        flex-direction: column;
-        gap: 10px;
-        margin: 10px 0;
-    }
+        .footer-logo {
+            margin-bottom: 1rem;
+        }
 
-    .search-container {
-        width: 100%;
-        margin-bottom: 10px;
-    }
+        .footer-logo h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #3498db;
+        }
 
-    .search-container input[type="text"] {
-        width: calc(100% - 90px);
-    }
+        .footer-links h3,
+        .footer-contact h3,
+        .footer-social h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #3498db;
+        }
 
-    .profile-section {
-        margin-left: 0;
-        margin-bottom: 10px;
-    }
+        .footer-links ul {
+            list-style: none;
+        }
 
-    table {
-        font-size: 14px;
-    }
-}
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            line-height: 2;
+        }
 
+        .footer-links a:hover {
+            color: #3498db;
+        }
 
-  /* Navbar Styles *//* Navbar Styles */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #2c3e50;
-    padding: 15px 20px;
-    color: #fff;
-}
+        .footer-contact p {
+            margin: 0.5rem 0;
+            line-height: 1.6;
+        }
 
-.navbar-logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
+        .footer-social .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
 
-.navbar-links {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 1rem;
+            }
 
-.navbar-links li {
-    position: relative;
-}
+            .navbar-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                padding: 1rem 0;
+            }
 
-.navbar-links a {
-    color: #fff;
-    text-decoration: none;
-}
+            .search-container {
+                width: 100%;
+                margin: 1rem 0;
+            }
 
-.navbar-links a:hover {
-    text-decoration: underline;
-}
+            .search-container input[type="text"] {
+                width: 100%;
+            }
 
-.search-container {
-    display: flex;
-}
+            .order-history {
+                margin-top: 80px;
+                padding: 15px;
+            }
 
-.search-container input[type="text"] {
-    padding: 8px;
-    border: none;
-    border-radius: 5px;
-}
+            table {
+                font-size: 14px;
+            }
 
-.search-container button {
-    padding: 8px;
-    background-color: #2980b9;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
+            th, td {
+                padding: 0.75rem;
+            }
+        }
 
-.search-container button:hover {
-    background-color: #3498db;
-}
-
-/* Profile Dropdown Styles */
-.profile-section {
-    position: relative; /* Set this to relative for dropdown positioning */
-    margin-left: 20px; /* Space between the search bar and profile */
-    margin-right: 50px;
-}
-
-.profile-dropdown {
-    position: relative;
-}
-
-.profile-btn {
-    background: none;
-    color: #fff;
-    cursor: pointer;
-    font-size: 1rem;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    right: 5px;
-    background-color: #fff;
-    min-width: 160px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    color: #333;
-    border-radius: 5px;
-}
-
-.dropdown-content a,
-.dropdown-content button {
-    color: #333;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    border: none;
-    background: none;
-    text-align: left;
-}
-
-.dropdown-content a:hover,
-.dropdown-content button:hover {
-    background-color: #f1f1f1;
-}
-
-/* Show dropdown on hover */
-.profile-dropdown:hover .dropdown-content {
-    display: block;
-}
-
+        @media (max-width: 480px) {
+            .order-history h1 {
+                font-size: 1.5rem;
+            }
+            
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
     </style>
 </head>
 <body>
-  <nav class="navbar">
-    <div class="navbar-logo"> Apna Electrician </div>
-    <ul class="navbar-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/services">Services</a></li>
-        <li><a href="tel:+1234567890">Call Now</a></li>
-    </ul>
-    <div class="search-container">
-        <form id="search-form" onsubmit="return handleSearch(event)">
-            <input type="text" id="search-input" placeholder="Search..." />
-            <button type="submit">Search</button>
-        </form>
-    </div>
-    <div class="profile-section">
-        {{#if username}}
-            <!-- Display user profile in the navbar when logged in -->
-            <div class="profile-dropdown">
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-logo">Apna Electrician</div>
+        <ul class="navbar-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="tel:+1234567890">Call Now</a></li>
+        </ul>
+        <div class="search-container">
+            <form id="search-form">
+                <input type="text" placeholder="Search...">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+        <div class="profile-dropdown">
+            {{#if username}}
+            <div class="user-icon">
                 <span class="profile-btn">{{username}}</span>
-                <div class="dropdown-content">
-                    <a href="/profile">Profile Settings</a>
-                    {{!-- <a href="/order">Order Status</a> --}}
-                    <form action="/logout" method="POST">
-                        <button type="submit">Logout</button>
-                    </form>
-                </div>
             </div>
-        {{else}}
-            <button onclick="window.location.href='/login'">Login</button>
-            <button onclick="window.location.href='/signup'">Signup</button>
-        {{/if}}
-    </div>
-</nav>
+            <div class="dropdown-content">
+                <a href="/profile">Profile Settings</a>
+                <form action="/logout" method="POST">
+                    <button type="submit">Logout</button>
+                </form>
+            </div>
+            {{else}}
+            <button class="login" onclick="window.location.href='/login'">Login</button>
+            <button class="signup" onclick="window.location.href='/signup'">Signup</button>
+            {{/if}}
+        </div>
+    </nav>
 
-<main class="order-history">
-    <h1>Order History</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Order ID</th>
-                <th>Product</th>
-                <th>Date</th>
-                <th>Status</th>
-                <th>Total</th>
-            </tr>
-        </thead>
-        <tbody>
-            {{#each orders}}
+    <!-- Order History -->
+    <main class="order-history">
+        <h1>Order History</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Product</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each orders}}
                 <tr>
                     <td>{{this.orderID}}</td>
                     <td>{{this.product}}</td>
                     <td>{{this.date}}</td>
-                    <td>{{this.status}}</td>
-                    <td>${{this.total}}</td>
+                    <td><span class="status-badge">{{this.status}}</span></td>
+                    <td>₹{{this.total}}</td>
                 </tr>
-            {{/each}}
-        </tbody>
-    </table>
+                {{/each}}
+            </tbody>
+        </table>
+    </main>
 
-
-
-
-</main>
-
-
-    
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2025 E-Commerce. All rights reserved.</p>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h2>Apna Electrician</h2>
+                <p>&copy; 2025 All rights reserved</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                    <li><a href="/terms">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p>Email: contact@apnaelectrician.com</p>
+                <p>Phone: +91 7800905998</p>
+                <p>Pune, Maharashtra</p>
+            </div>
+            <div class="footer-social">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#">Facebook</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">Instagram</a>
+                </div>
+            </div>
+        </div>
     </footer>
 </body>
 </html>

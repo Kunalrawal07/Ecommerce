@@ -1,8 +1,8 @@
 {
-  "name": "your-project-name",
+  "name": "Apna Electricion Shop",
   "version": "1.0.0",
   "description": "Your project description",
-  "main": "app.js",
+  "main": "index.js",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "connect-mongo": "^5.1.0",
@@ -22,8 +22,7 @@
     "some-module": "^0.0.3"
   },
   "scripts": {
-    "build": "react-scripts build",
-    "start": "node app.js"
- 
+    "build": "echo 'No build step required'",
+"start": "node src/index.js"
   }
 }
