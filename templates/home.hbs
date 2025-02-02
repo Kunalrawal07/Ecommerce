@@ -13,10 +13,10 @@
     <link rel="canonical" href="https://apnaelectrician.com/" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAbCAMAAABY1h8eAAABRFBMVEX/////9eT/4LT/0I7/x3j/w3X/xoT/0aH/5s7/6MD/zGf/15f/69D/+fD//Pf/79//17H/tGf/xpT/+ez/0Gf/5bX/rmT/1bf/8tTi5eZaaHJ2gYmXnaOKkpnO0tXw8fL/y6T/uob/2HMACixFVGC/w8Y5SVa0ub0DKDz/2GP/y6r/33nc6vvz/P//pmr/5ZZ+o9tSc6V2e4lHWHsAH4BBfcr/s4X/5IljeYeQpLUAF1ghPXDCwsGZl5QqPEwAY8UARLGqx+pujsMAW8QgWqJmf50Md9X/6aPg4OYNccU8W3eopqMARHJThMr/8sWwucwAW7dPRTRrZmIthbklnub01NXmnJzZWlruvr6TpcYvb7V7enkAAABLS0sAOq7k7vrCy9ssKidBQD8XEgYAE2P/nlwXHlcAAEyNj6NzdpE+Q2wxNWWVzPvDAAABnklEQVR4AY3R03okQQBA4ROPrVb1qje27aQR28bg/a8XXfP1MvhvT7l4p4bGpuaW1rYQ/wpHorE4JJKpdCbBH7K5PIFkochvSrkEKKiabggT+PDxt/YJ4LP+xdK+tndYQDGoiU4AVH+SaG8H6OpC6s5S19PTS11fXC7aD5jtondgcGh4ZLQHX3IMgPEsMKFMTk0zMzs3v7BYn5oA8Hc0rKXlldkZZXVtfkHOLRaBhnUAO2FMO64wvQ1nfhOA+BiwtQWgmNs7u3Mze/sHqrMAh0fQJ+PxCYjTs73zi8tZt125uv49HpogbiZv2bu43LtTdq6BIAK9M9ze7c3uXXjnl6cEMdsPIBTE+e3lnnIxc27Ji36QV5GR+/P7y9mZCw1fVwhgvQQKOu0P4vziYk8FsOFRXqgb+2lbaTexLEMX7cD2sx3qwre+xXZZIUD7TVlO9HfNUrGrJpJt18r0JQk+NMtkuVzebrdsq2JXBB9DENRcGLZv2u1quTJZJl4I8bt8pAQmtt1LIpOO86dEPtLUGIuF29KtSf4jHguHQ7+X78rWQypWynlvAAAAAElFTkSuQmCC" />
+    <link rel="icon" type="image/png" href="../public/android-chrome-192x192.png" />
 
     <title>Apna Electricon - Premium Electrical Products Online</title>    <style>
-        * {
+         * {
             font-family: 'Rubik', sans-serif;
             margin: 0;
             padding: 0;
@@ -24,246 +24,238 @@
         }
 
         /* Navbar Styles */
-/* Navbar Styles */
-.navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem;
-    background-color: #2c3e50;
-    color: white;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+            background-color: #2c3e50;
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
 
-.navbar-left {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
+        .navbar-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
 
-.navbar-logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #3498db;
-}
+        .navbar-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #3498db;
+        }
 
-.search-icon {
-    font-size: 1.5rem;
-    cursor: pointer;
-    display: none;
-}
+        .search-icon {
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: none;
+        }
 
-.hamburger {
-    font-size: 1.5rem;
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-    display: none;
-}
+        .hamburger {
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            display: none;
+        }
 
-.navbar-links {
-    display: flex;
-    list-style: none;
-    gap: 1.5rem;
-    align-items: center;
-    padding-left: 50px;
-}
+        .navbar-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            align-items: center;
+            padding-left: 50px;
+        }
 
-.navbar-links a {
-    color: white;
-    text-decoration: none;
-    transition: color 0.3s;
-}
+        .navbar-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
 
-.navbar-links a:hover {
-    color: #3498db;
-}
+        .navbar-links a:hover {
+            color: #3498db;
+        }
 
-.search-container {
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-    margin-left: auto; /* Push search bar to the left */
-    margin-right: 1rem; /* Add spacing between search bar and buttons */
-}
+        .search-container {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            margin-left: auto;
+            margin-right: 1rem;
+        }
 
-.search-container input[type="text"] {
-    padding: 0.5rem;
-    border: none;
-    border-radius: 4px;
-    width: 200px;
-    font-size: 1rem;
-}
+        .search-container input[type="text"] {
+            padding: 0.5rem;
+            border: none;
+            border-radius: 4px;
+            width: 200px;
+            font-size: 1rem;
+        }
 
-.search-container button {
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 4px;
-    background-color: #3498db;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-}
+        .search-container button {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            background-color: #3498db;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
 
-.search-container button:hover {
-    background-color: #2980b9;
-    transform: translateY(-2px);
-}
+        .search-container button:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
 
-.navbar-right {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
+        .navbar-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
 
-.profile-dropdown {
-    position: relative;
-}
+        .profile-dropdown {
+            position: relative;
+        }
 
-.user-icon {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    cursor: pointer;
-}
+        .user-icon {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    right: 0;
-    background-color: white;
-    min-width: 160px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    border-radius: 4px;
-    z-index: 1;
-}
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            z-index: 1;
+        }
 
-.profile-dropdown:hover .dropdown-content {
-    display: block;
-}
+        .profile-dropdown:hover .dropdown-content {
+            display: block;
+        }
 
-.dropdown-content a,
-.dropdown-content button {
-    color: #333;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    border: none;
-    background: none;
-    width: 100%;
-    text-align: left;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
+        .dropdown-content a,
+        .dropdown-content button {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            border: none;
+            background: none;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
 
-.dropdown-content a:hover,
-.dropdown-content button:hover {
-    background-color: #f1f1f1;
-}
+        .dropdown-content a:hover,
+        .dropdown-content button:hover {
+            background-color: #f1f1f1;
+        }
 
-/* Login and Signup Buttons */
-.login,
-.signup {
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 25px;
-    background-color: #3498db;
-    color: white;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
+        /* Login and Signup Buttons */
+        .login,
+        .signup {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            background-color: #3498db;
+            color: white;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
 
-.login:hover,
-.signup:hover {
-    background-color: #2980b9;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-}
+        .login:hover,
+        .signup:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
 
-.login:active,
-.signup:active {
-    transform: translateY(0);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
+        .login:active,
+        .signup:active {
+            transform: translateY(0);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
 
-/* Responsive Design for Small Devices */
-@media (max-width: 768px) {
-    .navbar-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: #2c3e50;
-        padding: 1rem;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
+        /* Responsive Design for Small Devices */
+        @media (max-width: 768px) {
+            .navbar-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #2c3e50;
+                padding: 1rem;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
 
-    .navbar-links.show {
-        display: flex;
-    }
+            .navbar-links.show {
+                display: flex;
+            }
 
-    .search-icon {
-        display: block;
-    }
+            .search-icon {
+                display: block;
+            }
 
-    .hamburger {
-        display: block;
-    }
+            .hamburger {
+                display: block;
+            }
 
-    .search-container {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: #2c3e50;
-        padding: 1rem;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
+            .search-container {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #2c3e50;
+                padding: 1rem;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
 
-    .search-container.show {
-        display: flex;
-    }
+            .search-container.show {
+                display: flex;
+            }
 
-    .search-container input[type="text"] {
-        width: calc(100% - 100px);
-    }
+            .search-container input[type="text"] {
+                width: calc(100% - 100px);
+            }
 
-    .search-container button {
-        width: 80px;
-    }
+            .search-container button {
+                width: 80px;
+            }
 
-    /* Login and Signup Buttons for Mobile */
-    .login,
-    .signup {
-        width: 100%;
-        margin: 0.5rem 0;
-        background-color: #3498db;
-        color: white;
-    }
+            /* Login and Signup Buttons for Mobile */
+            .login,
+            .signup {
+                width: 100%;
+                margin: 0.5rem 0;
+                background-color: #3498db;
+                color: white;
+            }
 
-    .login:hover,
-    .signup:hover {
-        background-color: #2980b9;
-    }
-}
-
-
-
-
-
-       
-       
+            .login:hover,
+            .signup:hover {
+                background-color: #2980b9;
+            }
+        }
 
         /* Category Styles */
         .ctgy {
@@ -304,6 +296,22 @@
             padding: 2rem;
             max-width: 1400px;
             margin: 0 auto;
+        }
+
+        /* For small devices (mobile) */
+        @media (max-width: 768px) {
+            .product-container {
+                grid-template-columns: repeat(2, 1fr); /* 2 products per row */
+                gap: 0.5rem;
+                padding: 1rem;
+            }
+
+            .product-card {
+            }
+
+            .product-card button {
+                width: 100%;
+            }
         }
 
         .product-card {
@@ -488,7 +496,6 @@
             .navbar-links.show {
                 display: flex;
             }
-
             .search-container {
                 width: 100%;
                 margin: 1rem 0;
@@ -522,7 +529,7 @@
             }
 
             .product-container {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                grid-template-columns: repeat(2, 1fr); /* 2 products per row */
                 gap: 1rem;
                 padding: 1rem;
             }
@@ -550,6 +557,13 @@
 
             .product-card {
                 margin: 0.5rem;
+                height: 300px;
+                padding-top: 5px;
+                
+                
+            }
+            .product-card > button{
+                padding-bottom: 15px;
             }
 
             .modal-content {
@@ -644,20 +658,37 @@
             transition: all 0.3s ease;
         }
 
-        #view {
-            background: #3498db;
-            color: white;
+      
+     
 
-        }
-        .view-more-button{
+         .view-more-button{
+            height: 10px;
+            margin-bottom: 30px;
+            padding-bottom: 35px;
+            text-align: center;
+            align-items: center;
+            padding-top: 10px;
+            padding-bottom: 25px;
+            border-radius: 15px;
+            background-color: rgb(75, 176, 75);
             color: white;
             text-decoration: none;
-        }
 
-        #cart {
-            background: #27ae60;
-            color: white;
-        }
+                    
+            }
+            #cart{
+                cursor: pointer;
+                 height: 20px;
+            margin-bottom: 30px;
+            padding-bottom: 35px;
+            text-align: center;
+            align-items: center;
+            padding-top: 10px;
+            padding-bottom: 25px;
+            border-radius: 15px;
+            position: relative;
+            bottom: 30px;
+            }
 
         #view:hover, #cart:hover {
             transform: translateY(-2px);
@@ -679,6 +710,9 @@
             gap: 1.5rem;
         }
 
+
+
+
         @media (max-width: 768px) {
           
             .inner {
@@ -689,6 +723,7 @@
                 grid-template-columns: 1fr;
                 text-align: center;
             }
+           
         }
 
         @media (max-width: 480px) {
@@ -697,6 +732,32 @@
             .product-card button {
                 width: 100%;
                 margin: 0.5rem 0;
+            }
+          
+          
+            .view-more-button{
+            height: 10px;
+            margin-bottom: 30px;
+            padding-bottom: 35px;
+            text-align: center;
+            align-items: center;
+            padding-top: 10px;
+            padding-bottom: 25px;
+            border-radius: 15px;
+
+                    
+            }
+            #cart{
+                 height: 20px;
+            margin-bottom: 30px;
+            padding-bottom: 35px;
+            text-align: center;
+            align-items: center;
+            padding-top: 10px;
+            padding-bottom: 25px;
+            border-radius: 15px;
+            position: relative;
+            bottom: 30px;
             }
         }
     </style>
@@ -753,7 +814,7 @@
     <ul class="navbar-links">
         <li><a href="/">Home</a></li>
         <li><a href="https://apnaelectrician.com/">Services</a></li>
-        <li><a href="tel:+1234567890">Call Now</a></li>
+        <li><a href="tel:+917800905998">Call Now</a></li>
         {{#if username}}
         <li class="profile-dropdown">
             <div class="user-icon">
@@ -906,9 +967,8 @@ document.addEventListener('click', (event) => {
                 </div>
                 <h2 class="product-title">{{this.name}}</h2>
                 <p class="product-price">₹ {{this.price}}</p>
-                <button id="view">
-                    <a href="/product/{{this._id}}" class="view-more-button">View More</a>
-                </button>
+                 <a href="/product/{{this._id}}" class="view-more-button" id="view" >    View More</a> 
+                
                 <button id="cart" onclick="addToCart('{{this._id}}', '{{this.name}}', {{this.price}}, `{{this.imageUrls.[0]}}`)">
                     Add to Cart
                 </button>
