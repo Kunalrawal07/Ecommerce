@@ -760,6 +760,38 @@
             bottom: 30px;
             }
         }
+
+
+            .ctgy {
+        margin: 3rem 0 1rem 2rem;
+        font-size: 1.5rem;
+        color: #2c3e50;
+    }
+
+    .category {
+        padding: 1rem 2rem;
+    }
+
+    .category select {
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 4px;
+        background-color: #2c3e50;
+        color: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        min-width: 200px;
+    }
+
+    .category select:hover {
+        background-color: #3498db;
+    }
+
+    @media (max-width: 768px) {
+        .category select {
+            width: 100%;
+        }
+    }
     </style>
 </head>
 <body>
@@ -948,14 +980,16 @@ document.addEventListener('click', (event) => {
         setInterval(nextSlide, 4000);
     </script>
 
-    <!-- Categories -->
-    <h1 class="ctgy">Category</h1>
-    <div class="category">
-        <button onclick="handledefault()">Latest Products</button>
-        <button onclick="handlebulb()">Fan</button>
-        <button onclick="handlecamera()">Security Cameras</button>
-        <button onclick="handlelight()">Light's</button>
-    </div>
+<!-- Categories -->
+<h1 class="ctgy">Category</h1>
+<div class="category">
+    <select id="categoryDropdown" onchange="handleCategoryChange()">
+        <option value="default">Latest Products</option>
+        <option value="fan">Fan</option>
+        <option value="camera">Security Cameras</option>
+        <option value="light">Light's</option>
+    </select>
+</div>
 
     <!-- Products -->
     <main>
@@ -1028,36 +1062,47 @@ document.addEventListener('click', (event) => {
                 product.style.display = title.includes(input) ? 'block' : 'none';
             });
         }
-
-        // Category Filters
-        function handledefault() {
-            const productContainer = document.getElementById('product-container');
-            const products = [...productContainer.getElementsByClassName('product-card')];
-            products.forEach(product => {
-                product.style.display = 'block';
-            });
+    function handleCategoryChange() {
+        const selectedValue = document.getElementById('categoryDropdown').value;
+        if (selectedValue === 'default') {
+            handledefault();
+        } else if (selectedValue === 'fan') {
+            handlebulb();
+        } else if (selectedValue === 'camera') {
+            handlecamera();
+        } else if (selectedValue === 'light') {
+            handlelight();
         }
+    }
 
-        function handlebulb() {
-            filterProducts('fan');
-        }
+    function handledefault() {
+        const productContainer = document.getElementById('product-container');
+        const products = [...productContainer.getElementsByClassName('product-card')];
+        products.forEach(product => {
+            product.style.display = 'block';
+        });
+    }
 
-        function handlecamera() {
-            filterProducts('camera');
-        }
+    function handlebulb() {
+        filterProducts('fan');
+    }
 
-        function handlelight() {
-            filterProducts('Light');
-        }
+    function handlecamera() {
+        filterProducts('camera');
+    }
 
-        function filterProducts(keyword) {
-            const productContainer = document.getElementById('product-container');
-            const products = [...productContainer.getElementsByClassName('product-card')];
-            products.forEach(product => {
-                const title = product.querySelector('.product-title').innerText.toLowerCase();
-                product.style.display = title.includes(keyword.toLowerCase()) ? 'block' : 'none';
-            });
-        }
+    function handlelight() {
+        filterProducts('Light');
+    }
+
+    function filterProducts(keyword) {
+        const productContainer = document.getElementById('product-container');
+        const products = [...productContainer.getElementsByClassName('product-card')];
+        products.forEach(product => {
+            const title = product.querySelector('.product-title').innerText.toLowerCase();
+            product.style.display = title.includes(keyword.toLowerCase()) ? 'block' : 'none';
+        });
+    }
 
         // Cart
         function addToCart(productId, productName, productPrice, productImage) {
