@@ -528,7 +528,6 @@
             .product-container {
                 grid-template-columns: repeat(2, 1fr); /* 2 products per row */
                 gap: 1rem;
-                padding: 1rem;
             }
 
             .footer-container {
@@ -782,7 +781,16 @@
 @media (max-width: 768px) {
     .product-card {
         margin: 0.5rem;
-        padding: 0.5rem;
+                        border: 2px solid red;
+                        height: auto;
+
+    }
+
+
+    .product-image{
+        max-width: fit-content;
+        max-height: fit-content;
+        border: 2px solid red;
     }
 
     .product-card button,
